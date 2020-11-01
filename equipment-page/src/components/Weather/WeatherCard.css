@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather|Fira+Sans&display=swap");
+
+.card {
+  background: linear-gradient(to top, blue, pink);
+  width: 150px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between 20px;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 15px;
+  color: white;
+}
+
+.city {
+  font-family: "Merriweather", sans-serif;
+  font-size: 1.6em;
+}
+
+.temp {
+  font-family: "Merriweather", sans-serif;
+}
+
+.condition {
+  font-family: "Merriweather", sans-serif;
+  font-size: 1.2rem;
+}
