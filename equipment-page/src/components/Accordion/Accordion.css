@@ -1,0 +1,37 @@
+.accordion-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-title {
+  font-family: "Quicksand";
+  font-size: 20px;
+  background-color: rgba(125, 182, 216, 0.945);
+  color: #444;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  transition: background-color 0.6s ease;
+}
+
+.accordion-title:hover,
+.active {
+  background-color: #ccc;
+}
+
+.accordion-icon {
+  margin-left: auto;
+  transition: transform 0.6s ease;
+}
+
+.rotate {
+  transform: rotate(90deg);
+}
+
+.accordion-content {
+  background-color: rgb(29, 95, 107);
+  overflow: hidden;
+  transition: max-height 0.2s ease;
+}
