@@ -1,5 +1,6 @@
 let myForm = document.querySelector("form");
-let btn = document.querySelector("button");
+let btn = document.querySelector("#calculateButton");
+
 
 function calculate(ev) {
     ev.preventDefault();
@@ -16,15 +17,10 @@ function calculate(ev) {
 
 
 
-// function reDirect(ev) {
-//     ev.preventDefault();
-
-//     window.location.href = "myProfile.html";
-    
-// }
-
 
 btn.addEventListener("click", calculate)
+
+
 
 
 
