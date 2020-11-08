@@ -3,6 +3,11 @@ document.addEventListener('DOMContentLoaded', activateButton);
 function activateButton() {
   document.getElementById("nearbyTrails").addEventListener("click", function(event) {
     var req = new XMLHttpRequest();
+	
+var apiURL = "https://www.hikingproject.com/data/get-trails?lat=";
+var apiKey = "&maxDistance=10&key=200969017-49dfe1c23872438379f0a1e5e5314b8e";
+
+
 
 
     var zipInput = document.getElementById("zip_input").value;
@@ -11,11 +16,19 @@ function activateButton() {
     // Create URL
     if (zipInput != "") {
       buildURL = "zip=" + zipInput;
+		
+
+		var zipLat = 40.0274;
+		var zipLon = -105.2519;
+
+
+
 
     } 
 
 
-    var setURL = "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200969017-49dfe1c23872438379f0a1e5e5314b8e";
+    var setURL = apiURL + zipLat + "&lon=" + zipLon + apiKey;
+
     req.open('GET', setURL, true);
 
     req.addEventListener("load", function() {
@@ -37,9 +50,6 @@ for (i = 0; i < response.trails.length; i++){
         document.getElementById("longitude").textContent = response.trails[i].longitude;
         document.getElementById("latitude").textContent = response.trails[i].latitude;
         document.getElementById("description").textContent = response.trails[i].summary;
-
-
-
 
 }
 
