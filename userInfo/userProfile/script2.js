@@ -15,6 +15,7 @@ let kg = `${localStorage.getItem("weight")}`
 let cm = `${localStorage.getItem("height")}`
 
 let fitnessLevel = calculateFitLevel(DA, ageNum, kg, cm);
+localStorage.setItem("fitness", fitnessLevel);
 
 document.getElementById("showActivityNum").textContent = fitnessLevel;
 document.querySelector(".level").textContent = fitnessLevel;
