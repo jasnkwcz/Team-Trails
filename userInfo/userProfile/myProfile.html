@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Profile</title>
 
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 5px;
+        }
+        th {
+          text-align: left;
+        }
+        div {
+            display: inline-block;
+        }
+    </style>
 
 </head>
 <body>
@@ -20,14 +35,64 @@
     Weight: <span id="showWeight">"?"</span>kg<br>
     Daily Activity: <span class="showActivity">"?"</span><br>
     
-    <p style="color: green; font-weight: bold;">Fitness Level: <span id="showFitness">"?"</span></p>
+    <p style="color: green; font-weight: bold;">Fitness Level: <span id="showActivityNum">"?"</span></p>
+    <br>
 
-    <p>Your Fitness Level has been calculated to <span class="level"></span> because your Daily Activity is <span class="showActivity">?</span>.</p>
-    <p>This means that we will recommend you <span class="recommend"></span> trails available.</p>
+    <p>
+        Your Fitness Level has been calculated to <span class="level" style="color: green;"></span>. Here's the formula:<br>
+
+        <div>
+            <table>
+                <tr><strong>Daily Activity:</strong><br></tr>
+                <tr> <th>Not Active</th>            <td>+1 point</td>    </tr>
+                <tr> <th>Slightly Active</th>       <td>+2 points</td>   </tr>
+                <tr> <th>Moderately Active</th>     <td>+3 points</td>    </tr>
+                <tr> <th>Very Active</th>           <td>+4 points</td>    </tr>
+                <tr> <th>A Marathon Runner!</th>    <td>+5 points</td>   </tr>
+            </table>
+        </div>
+
+
+        <div>
+            <table>
+                <tr><strong>Age:</strong><br></tr>
+                <tr> <th>6 ~ 17</th>  <td>+5 points</td>   </tr>
+                <tr> <th>18 ~ 64</th> <td>+3 points</td>   </tr>
+                <tr> <th>65 ~</th>    <td>+1 point</td>    </tr>
+            </table>
+        </div>
+
+
+        <div>
+            <table>
+                <tr><strong>BMI (kg/m^2):</strong><br></tr>
+                <tr> <th>18.5 ~ 24.9</th>  <td>+2 points</td>   </tr>
+                <tr> <th>Other</th> <td>+0 points</td>   </tr>
+            </table>
+        </div>
+
+    </p>
+
+    <p>
+        <strong>Formula:</strong><br>
+        BMI = kg / (cm/100)^2<br>
+        Sum = Daily Activity Points + Age Points + BMI Points<br>
+        Fitness Level = round(Sum * 5 / 12)
+    </p>
+    <p style="color: green;">
+        <span id="showWork1"></span><br>
+        <span id="showWork2"></span><br>
+        <span id="showWork3"></span>
+    </p>
+    
+    <br>
+    <p>This means that we will recommend you <span id="recommend" style="color: green;"></span> trails available.</p>
+
     <p>
         But as your Fitness Level changes, your recommentations will also change. <br>
-        It may increase as you become more active or may decrease as you become less active. <br>
-        So make sure to keep updating your Daily Activity by clicking "Edit Profile" below!
+        It may increase as you become more active and have the right weight, <br>
+        or it may decrease as you become less active, fall off the healthy weight, or age really old. <br>
+        So make sure to keep updating your profile info by clicking "Edit Profile" below!
     </p>
  
 

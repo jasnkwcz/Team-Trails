@@ -40,7 +40,7 @@ function calculate(ev) {
     localStorage.setItem("height", inputHeightVal);
     localStorage.setItem("weight", inputWeightVal);
     localStorage.setItem("activity", inputActivityVal);
-    localStorage.setItem("fitness", inputFitnessVal);
+    localStorage.setItem("activityNum", inputFitnessVal);
 
 
 
