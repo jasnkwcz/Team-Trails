@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Nearby Trails</title>
+  </head>
+
+  <body>
+    <form id="nearbyTrails" method="get">
+      <fieldset>
+
+        <legend>
+          Get Data:
+        </legend>
+
+	<label>
+
+          Zip Code:
+          <input type="text" name="zip_weather" id="zip_input" size="30" maxlength="100">
+        </label>
+	<br /></p>
+        
+	<button id="nearbyTrails" type="submit">Submit</button>
+      </fieldset>
+    </form>
+
+    <div>
+      <h2>Nearby Trails</h2>
+      <ul>
+       <li><span>Trail Name: </span><span id="name"></span></li>
+        <li><span>Location: </span><span id="location"></span></li>
+        <li><span>Distance: </span><span id="distance"></span></li>
+        <li><span>Difficulty: </span><span id="difficulty"></span></li>
+        <li><span>Trailhead: (</span><span id="latitude"></span> <span>, </span> <span id="longitude"></span><span>)</span></li>
+        <li><span>Description: </span><span id="description"></span></li>
+
+
+
+
+
+
+
+      </ul>
+    </div>
+    <script src="nearbyTrails3.js">
+	</script>
+
+
+
+
+  </body>
+
+</html>
