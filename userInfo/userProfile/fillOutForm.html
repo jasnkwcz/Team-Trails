@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+</head>
+<body>
+    <h2>User Profile</h2>
+
+    <h3>Calculate Your Fitness Level:</h3> 
+
+    <form action="nowhere">
+
+        Name: <input type="text" id="inputName" name="name">
+        <br>
+        Gender: 
+        <input type="radio" name="gender" value="Male">Male
+        <input type="radio" name="gender" value="Female">Female
+        <br>
+        Age: <input type="number" id="inputAge" name="age">
+        <br>
+        City Name: <input type="text" id="inputCity" name="city">
+        <br>
+        State (e.g. "OR"): <input type="text" id="inputState" name="state">
+        <br>
+        Zip Code: <input type="number" id="inputZip" name="zip">
+        <br>
+        Height(cm): <input type="number" id="inputHeight" name="height">
+        <br>
+        Weight(kg): <input type="number" id="inputWeight" name="weight">
+        <br>
+        Daily Activity: 
+        <select name="activity" id="activity">
+
+            <option value="0">Choose One Below:</option>
+            <option value="1">Not Active</option>
+            <option value="2">Slightly Active</option>
+            <option value="3">Moderately Active</option>
+            <option value="4">Very Active</option>
+            <option value="5">A Marathon Runner Level!</option>
+
+        </select>
+        <br>
+        <br>
+        <button id="calculateButton">Calculate</button>
+
+    </form>
+
+    
+    <br>
+    <!-- Your age: <span id="showAge">"what"</span> -->
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script src="script.js"></script>
+</body>
+</html>
