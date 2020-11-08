@@ -23,6 +23,13 @@ let rec = [
 
 document.querySelector(".recommend").textContent = rec[`${localStorage.getItem("fitness")}` - 1]
 
+let delClick = document.getElementById("delete");
+delClick.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    localStorage.clear();
+    window.location.href = "fillOutForm.html";
+})
+
 
 
 // let showAge = document.getElementById("showAge");

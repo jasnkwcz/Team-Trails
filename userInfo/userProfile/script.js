@@ -9,7 +9,9 @@ function calculate(ev) {
         document.querySelector("input[type='radio']:checked").value;
     }
     catch(err) {
-        alert("Gender selection required.")
+
+        req.textContent = "*Please select your gender."
+
     }
 
     let inputNameVal = document.getElementById("inputName").value;
@@ -25,6 +27,9 @@ function calculate(ev) {
     let inputActivityVal = inputActivityEl.options[inputActivityEl.selectedIndex].text;
     let inputFitnessVal = inputActivityEl.value;
     
+    if(!inputNameVal) {
+        inputNameVal = "(Anonymous)"
+    }
 
     localStorage.setItem("name", inputNameVal);
     localStorage.setItem("gender", inputGenderVal);
@@ -38,11 +43,31 @@ function calculate(ev) {
     localStorage.setItem("fitness", inputFitnessVal);
 
 
-    if(inputFitnessVal != 0) {
-        window.location.href = "myProfile.html";
+
+
+    if(!inputAgeVal) {
+        req.textContent = "*Please enter your age."
+    }
+    else if(!inputCityVal) {
+        req.textContent = "*Please enter your city."
+    }
+    else if(!inputStateVal) {
+        req.textContent = "*Please enter your state."
+    }
+    else if(!inputZipVal) {
+        req.textContent = "*Please enter your zip code."
+    }
+    else if(!inputHeightVal) {
+        req.textContent = "*Please enter your height."
+    }
+    else if(!inputWeightVal) {
+        req.textContent = "*Please enter your weight."
+    }
+    else if(inputFitnessVal == 0) {
+        req.textContent = "*Please specify your daily activity."
     }
     else {
-        alert("Please specify a Daily Activity.")
+        window.location.href = "myProfile.html";
     }
 
 

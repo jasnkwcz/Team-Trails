@@ -12,23 +12,23 @@
 
     <form action="nowhere">
 
-        Name: <input type="text" id="inputName" name="name">
+        Name: <input type="text" id="inputName" name="name" placeholder="e.g. Kevin (optional)">
         <br>
         Gender: 
         <input type="radio" name="gender" value="Male">Male
         <input type="radio" name="gender" value="Female">Female
         <br>
-        Age: <input type="number" id="inputAge" name="age">
+        Age: <input type="number" id="inputAge" name="age" placeholder="e.g. 29 (required)">
         <br>
-        City Name: <input type="text" id="inputCity" name="city">
+        City Name: <input type="text" id="inputCity" name="city" placeholder="e.g. Corvallis (required)">
         <br>
-        State (e.g. "OR"): <input type="text" id="inputState" name="state">
+        State (e.g. "OR"): <input type="text" id="inputState" name="state" placeholder="e.g. OR (required)">
         <br>
-        Zip Code: <input type="number" id="inputZip" name="zip">
+        Zip Code: <input type="number" id="inputZip" name="zip" placeholder="e.g. 97333 (required)">
         <br>
-        Height(cm): <input type="number" id="inputHeight" name="height">
+        Height(cm): <input type="number" id="inputHeight" name="height" placeholder="e.g. 160 (required)">
         <br>
-        Weight(kg): <input type="number" id="inputWeight" name="weight">
+        Weight(kg): <input type="number" id="inputWeight" name="weight" placeholder="e.g. 60 (required)">
         <br>
         Daily Activity: 
         <select name="activity" id="activity">
@@ -40,15 +40,24 @@
             <option value="4">Very Active</option>
             <option value="5">A Marathon Runner Level!</option>
 
-        </select>
-        <br>
-        <br>
-        <button id="calculateButton">Calculate</button>
+        </select><br>
+        <span id="req" style="color: red;"></span>
+
 
     </form>
 
-    
+
     <br>
+    <button id="calculateButton">Calculate</button>
+
+    <br>
+    <br>
+    <br>
+    <a href="../index.html">Back to First Page</a>
+
+
+
+
     <!-- Your age: <span id="showAge">"what"</span> -->
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
