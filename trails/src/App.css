@@ -2,6 +2,22 @@
   text-align: center;
 }
 
+.navlist{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navitem{
+  margin: auto;
+}
+
+.modalButton{
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
