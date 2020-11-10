@@ -4,6 +4,7 @@ import TrailCard from "./Components/TrailCard";
 import FormModal from "./Components/FormModal";
 import Profile from "./Components/Profile";
 import Home from "./Components/Home";
+import Equipment from "./Components/Equipment";
 import UserForm from "./Components/UserForm";
 import {
   BrowserRouter as Router,
@@ -45,6 +46,9 @@ export default class App extends Component {
             </Route>
             <Route exact path="/profile/edit">
               <UserForm />
+            </Route>
+            <Route exact path="/trails/equipment">
+              <Equipment />
             </Route>
           </Switch>
         </div>

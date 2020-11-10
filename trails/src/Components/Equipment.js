@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import Accordion from './components/Accordion/Accordion.js'
-import EquipmentManager from './components/EquipmentSorting/EquipmentManager'
-import WeatherForecast from './components/Weather/WeatherForecast';
-import GaugeHolder from './components/Gauges/GaugeHolder';
+import Accordion from './Accordion/Accordion'
+import EquipmentManager from './EquipmentSorting/EquipmentManager'
+import WeatherForecast from './Weather/WeatherForecast';
+import GaugeHolder from './Gauges/GaugeHolder';
 
 
 
-export default function Equipment = () => {
+export default class Equipment extends Component {
+render() {
   return (
     <div>
       <h1>Equipment Page</h1>
@@ -30,5 +31,6 @@ export default function Equipment = () => {
       </Accordion>
     </div>
   );
+}
 }
 
