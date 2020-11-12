@@ -137,6 +137,9 @@ export default class Profile extends Component{
           <br />
           <br />
           <button id="delete" onClick={this.delClick}>Delete Profile</button>
+          <br/ >
+          <br/ >
+          <a href="../index.html">Back to First Page</a>
           <br />
           <br />
         </div>
