@@ -41,7 +41,7 @@ export default class UserForm extends Component{
           <br />
           <br />
           <br />
-          <a href="../index.html">Back to First Page</a>
+          <Link className="home" exact to="/">Back to First Page</Link>
         </div>
       );
     }
