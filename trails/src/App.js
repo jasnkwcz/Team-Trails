@@ -23,6 +23,9 @@ export default class App extends Component {
         fname: "",
         lname: "",
         fitlevel: 0,
+        city: "",
+        state: "",
+        zip: null
       },
       location: {
         lat: 0,
