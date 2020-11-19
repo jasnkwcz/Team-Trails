@@ -19,6 +19,7 @@ export default class App extends Component {
     
     this.state = {
       user: {
+        isProfileCreated : false,
         fname: "",
         lname: "",
         fitlevel: 0,
@@ -40,7 +41,11 @@ export default class App extends Component {
               <Link className="navitem" to="/">Home</Link>
             </li>
             <li>
-              <Link className="navitem" to="/profile">User Profile</Link>
+            {
+              this.state.user.isProfileCreated ?
+              <Link className="navitem" to="/profile">My Profile</Link> :
+              <Link className="navitem" to="/profile/edit">Create Profile</Link>
+            } 
             </li>
             <li>
               <Link className="navitem" to="/trails">Nearby Trails</Link>
