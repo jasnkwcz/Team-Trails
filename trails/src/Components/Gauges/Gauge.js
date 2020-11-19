@@ -9,7 +9,7 @@ const Gauge = (props) => {
     const Card = styled.div`
     background: linear-gradient(to top, rgba(${red},100,100), lightblue);
     width: 20%;
-    height: 190px;
+    height: 200px;
     display: inline-block;
     flex-direction: column;
     justify-content: space-between;
