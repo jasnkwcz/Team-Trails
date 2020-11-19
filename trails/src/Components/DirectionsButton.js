@@ -1,7 +1,17 @@
 import React, { Component} from "react";
 
 export default class DirectionsButton extends Component{
-
+    /*constructor(props) {
+        super(props);
+        this.state = {
+            lat : xdescribe,
+            long : y,
+        }
+    }
+    provideLatLong() {
+        return (this.state);
+    }
+*/
 
     getDirections(event){
         event.preventDefault();
