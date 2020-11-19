@@ -25,6 +25,7 @@ function activateButton() {
         document.getElementById("weatherLong").textContent =response.coord.lon;
 
 
+
       } 
 	else {
         var errorMessage = "Error: " + response.statusText;
@@ -36,3 +37,5 @@ function activateButton() {
     event.preventDefault();
   });
 }
+var getLocationLat = 47.64;
+var getLocationLon = -122.36;
