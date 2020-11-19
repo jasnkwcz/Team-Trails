@@ -14,7 +14,7 @@ class GaugeHolder extends Component {
     }
     componentDidMount() {
 
-        fetch('https://www.hikingproject.com/data/get-trails-by-id?ids=7001635&key=200962200-a3f1d16081e9f29cfec2bd00a7bd1948')
+        fetch('https://www.hikingproject.com/data/get-trails-by-id?ids='+ this.state.id + '&key=200962200-a3f1d16081e9f29cfec2bd00a7bd1948')
             .then(res => res.json())
             .then(json => {
                 this.setState({
