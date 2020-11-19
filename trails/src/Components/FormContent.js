@@ -6,7 +6,8 @@ export default class FormContent extends Component {
         super(props);
         this.state = {
             toggle : false,
-            difficulty: null
+            difficulty: null,
+            save: false
         }
     }
 
@@ -14,9 +15,20 @@ export default class FormContent extends Component {
         event.preventDefault();
         this.setState({toggle: !this.state.toggle});
     }
+
+    saveChoice(event){
+        event.preventDefault();
+        this.setState({save: true});
+    }
+
+    hideModal(event){
+        event.preventDefault();
+        console.log("clicked");
+    }
+
     render() {
         return(
-            <div>
+            <div className="FormContent">
                 <form>
                     <label for="toggle">Get trails just for me: </label>
                     <button id="toggle" onclick={this.togglestate.bind(this)}>{(this.state.toggle ? <p>Off</p> : <p>On</p>)}</button>
@@ -28,8 +40,8 @@ export default class FormContent extends Component {
                         <option value="hard">Challenged</option>
                     </select>
                     <br></br>
-                    <button>Save</button>
-                    <button>Close</button>
+                    <button onClick={this.saveChoice.bind(this)}>Save</button>
+                    <button onClick={this.props.closeModal.bind(this)}>Close</button>
                 </form>
             </div>
         )

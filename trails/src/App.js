@@ -14,7 +14,22 @@ import {
 } from "react-router-dom";
 
 export default class App extends Component {
-  
+  constructor(props){
+    super(props);
+    
+    this.state = {
+      user: {
+        fname: "",
+        lname: "",
+        fitlevel: 0,
+      },
+      location: {
+        lat: 0,
+        long: 0
+      }
+    }
+
+  }
 
   render() {
     return (
@@ -76,6 +91,7 @@ class Trails extends Component {
   hideModalHandler = (event) =>{
     this.setState({showModal:false});
   }
+
 
 
 render() {
