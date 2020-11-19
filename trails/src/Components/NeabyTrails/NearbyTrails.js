@@ -1,8 +1,9 @@
 
+
 function fetchData() {
     activateButton();
-    var getLat = 47.64;
-    var getLon = "&lon=" + -122.36;
+    var getLat = getLocationLat;
+    var getLon = "&lon=" + getLocationLon;
     var apiURL = "https://www.hikingproject.com/data/get-trails?lat=";
     var apiKey = "&maxDistance=10&key=200969017-49dfe1c23872438379f0a1e5e5314b8e";
     var buildLink = apiURL + getLat + getLon + apiKey;
@@ -39,4 +40,8 @@ function fetchData() {
     });
 }
 
-fetchData();
+function start(){
+    activateButton();
+    fetchData();
+}
+start();
