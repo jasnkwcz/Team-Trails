@@ -11,7 +11,6 @@ export default class Equipment extends Component {
 render() {
   return (
     <div>
-      <h1>Equipment Page</h1>
       <div className= "weatherContainer">
         <WeatherForecast  />
       </div>

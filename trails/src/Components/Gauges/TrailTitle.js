@@ -10,11 +10,10 @@ const TrailTitle = (props) => {
     background: linear-gradient(to top, rgba(${red},100,100), lightblue);
     width: 20%;
     display: inline-block;
-    flex-direction: column;
-    align-items: center;
     margin: 10px;
-    border-radius: 15px;
     color: white;
+    display: table-cell;
+    align-items: center;
     `
     
     const TextContent = styled.p`
