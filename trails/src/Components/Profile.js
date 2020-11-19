@@ -23,9 +23,8 @@ export default class Profile extends Component{
 
     
     delClick(evt){
-        evt.preventDefault();
-        localStorage.clear();
-        console.log("Profile deleted");
+      this.props.deleteProfile();
+      evt.preventDefault();
     }
     
     
@@ -136,10 +135,14 @@ export default class Profile extends Component{
           <Link className="editprofile" exact to="/profile/edit">Edit profile</Link>
           <br />
           <br />
-          <button id="delete" onClick={this.delClick}>Delete Profile</button>
+          <button id="delete" onClick={this.delClick}>
+            
+          <Link id="deleteButton" className="navitem" to="/profile/edit">Delete Profile</Link>
+          
+          </button>
           <br/ >
           <br/ >
-          <a href="../index.html">Back to First Page</a>
+          <Link className="home" exact to="/">Back to First Page</Link>
           <br />
           <br />
         </div>

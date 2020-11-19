@@ -1,11 +1,31 @@
 import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 export default class UserForm extends Component{
+  constructor(props){
+    super(props);
+    this.calculateClick = this.calculateClick.bind(this)
+  }
+
+  calculateClick(evt){
+    this.props.calculateFitness();
+    evt.preventDefault();
+  } 
+
+
+
+
+
     render(){
       return (
         <div>
-          <h2>User Profile</h2>
-          <h3>Calculate Your Fitness Level:</h3> 
+          <h2>Create Profile</h2>
+          <h3>And calculate Your Fitness Level:</h3> 
           <form action="nowhere">
             Name: <input type="text" id="inputName" name="name" placeholder="e.g. Kevin (optional)" />
             <br />
@@ -37,11 +57,15 @@ export default class UserForm extends Component{
             <span id="req" style={{color: 'red'}} />
           </form>
           <br />
-          <button id="calculateButton">Calculate</button>
+          <button id="calculateButton" onClick={this.calculateClick} >
+            
+            <Link id="calculateButton" className="navitem" to="/profile">Calculate</Link>
+
+          </button>
           <br />
           <br />
           <br />
-          <a href="../index.html">Back to First Page</a>
+          <Link className="home" exact to="/">Back to First Page</Link>
         </div>
       );
     }

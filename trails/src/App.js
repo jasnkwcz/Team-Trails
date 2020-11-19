@@ -19,6 +19,7 @@ export default class App extends Component {
     
     this.state = {
       user: {
+        isProfileCreated : false,
         fname: "",
         lname: "",
         fitlevel: 0,
@@ -31,6 +32,50 @@ export default class App extends Component {
 
   }
 
+  calculateFitness() {
+    this.setState(
+      {user: 
+        {
+        isProfileCreated : true,
+        name: "",
+        gender: "",
+        age: null,
+        city: "",
+        state: "",
+        zip: null,
+        height: null,
+        weight: null,
+        activity: "",
+        fitnessLevel: 0,
+        }
+      }
+  );
+    return;
+  }
+
+
+  deleteProfile() {
+    this.setState(
+      {user: 
+        {
+        isProfileCreated : false,
+        name: "",
+        gender: "",
+        age: null,
+        city: "",
+        state: "",
+        zip: null,
+        height: null,
+        weight: null,
+        activity: "",
+        fitnessLevel: 0,
+        }
+      }
+  );
+    return;
+  }
+
+
   render() {
     return (
       <Router>
@@ -40,7 +85,11 @@ export default class App extends Component {
               <Link className="navitem" to="/">Home</Link>
             </li>
             <li>
-              <Link className="navitem" to="/profile">User Profile</Link>
+            {
+              this.state.user.isProfileCreated ?
+              <Link className="navitem" to="/profile">My Profile</Link> :
+              <Link className="navitem" to="/profile/edit">Create Profile</Link>
+            } 
             </li>
             <li>
               <Link className="navitem" to="/trails">Nearby Trails</Link>
@@ -54,13 +103,23 @@ export default class App extends Component {
               <Home />
             </Route>
             <Route exact path="/profile">
-              <Profile />
+              <Profile 
+              
+              calculateFitness={this.calculateFitness.bind(this)} 
+              deleteProfile={this.deleteProfile.bind(this)} 
+
+              />
             </Route>
             <Route exact path="/trails">
               <Trails />
             </Route>
             <Route exact path="/profile/edit">
-              <UserForm />
+              <UserForm 
+              
+              calculateFitness={this.calculateFitness.bind(this)} 
+              deleteProfile={this.deleteProfile.bind(this)} 
+
+              />
             </Route>
             <Route exact path="/trails/equipment">
               <Equipment />
