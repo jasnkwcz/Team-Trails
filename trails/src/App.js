@@ -32,6 +32,50 @@ export default class App extends Component {
 
   }
 
+  calculateFitness() {
+    this.setState(
+      {user: 
+        {
+        isProfileCreated : true,
+        name: "",
+        gender: "",
+        age: null,
+        city: "",
+        state: "",
+        zip: null,
+        height: null,
+        weight: null,
+        activity: "",
+        fitnessLevel: 0,
+        }
+      }
+  );
+    return;
+  }
+
+
+  deleteProfile() {
+    this.setState(
+      {user: 
+        {
+        isProfileCreated : false,
+        name: "",
+        gender: "",
+        age: null,
+        city: "",
+        state: "",
+        zip: null,
+        height: null,
+        weight: null,
+        activity: "",
+        fitnessLevel: 0,
+        }
+      }
+  );
+    return;
+  }
+
+
   render() {
     return (
       <Router>
@@ -59,13 +103,23 @@ export default class App extends Component {
               <Home />
             </Route>
             <Route exact path="/profile">
-              <Profile />
+              <Profile 
+              
+              calculateFitness={this.calculateFitness.bind(this)} 
+              deleteProfile={this.deleteProfile.bind(this)} 
+
+              />
             </Route>
             <Route exact path="/trails">
               <Trails />
             </Route>
             <Route exact path="/profile/edit">
-              <UserForm />
+              <UserForm 
+              
+              calculateFitness={this.calculateFitness.bind(this)} 
+              deleteProfile={this.deleteProfile.bind(this)} 
+
+              />
             </Route>
             <Route exact path="/trails/equipment">
               <Equipment />
