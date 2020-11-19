@@ -9,15 +9,15 @@ import {
 export default class Profile extends Component{
     constructor(props){
         super(props);
-        this.state = {
-            recommend: {
-                1: "easy",
-                2: "intermediate",
-                3: "challenging",
-                4: "difficult",
-                5: "impossible"
-            }
-        };
+        // this.state = {
+        //     recommend: {
+        //         1: "easy",
+        //         2: "intermediate",
+        //         3: "challenging",
+        //         4: "difficult",
+        //         5: "impossible"
+        //     }
+        // };
         this.delClick = this.delClick.bind(this);
     }
 
@@ -73,19 +73,19 @@ export default class Profile extends Component{
       return (
         <div>
           <h2>My Profile</h2>
-          Name: <span id="showName">"?"</span><br />
-          Gender: <span id="showGender">"?"</span><br />
-          Age: <span id="showAge">"?"</span><br />
-          City: <span id="showCity">"?"</span><br />
-          State: <span id="showState">"?"</span><br />
-          Zip Code: <span id="showZip">"?"</span><br />
-          Height: <span id="showHeight">"?"</span>cm<br />
-          Weight: <span id="showWeight">"?"</span>kg<br />
-          Daily Activity: <span className="showActivity">"?"</span><br />
-          <p style={{color: 'green', fontWeight: 'bold'}}>Fitness Level: <span id="showActivityNum">"?"</span></p>
+      Name: <span id="showName">{this.props.userState.name}</span><br />
+          Gender: <span id="showGender">{this.props.userState.gender}</span><br />
+          Age: <span id="showAge">{this.props.userState.age}</span><br />
+          City: <span id="showCity">{this.props.userState.city}</span><br />
+          State: <span id="showState">{this.props.userState.state}</span><br />
+          Zip Code: <span id="showZip">{this.props.userState.zip}</span><br />
+          Height: <span id="showHeight">{this.props.userState.height}</span>cm<br />
+          Weight: <span id="showWeight">{this.props.userState.weight}</span>kg<br />
+          Daily Activity: <span className="showActivity">{this.props.userState.activity}</span><br />
+          <p style={{color: 'green', fontWeight: 'bold'}}>Fitness Level: <span id="showActivityNum">{this.props.userState.fitnessLevel}</span></p>
           <br />
           <p>
-            Your Fitness Level has been calculated to <span className="level" style={{color: 'green'}}>{this.state.recommend[1]}</span>.. Here's the formula:<br />
+            Your Fitness Level has been calculated to <span className="level" style={{color: 'green'}}>{this.props.userState.recommendedTrailLevel}</span>.. Here's the formula:<br />
           </p><div>
             <strong>Daily Activity:</strong><br /><table>
               <tbody><tr />

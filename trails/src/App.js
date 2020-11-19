@@ -20,12 +20,16 @@ export default class App extends Component {
     this.state = {
       user: {
         isProfileCreated : false,
-        fname: "",
-        lname: "",
-        fitlevel: 0,
+        name: "",
+        gender: "",
+        age: null,
         city: "",
         state: "",
-        zip: null
+        zip: null,
+        height: null,
+        weight: null,
+        activity: "",
+        fitnessLevel: 0,
       },
       location: {
         lat: 0,
@@ -40,16 +44,17 @@ export default class App extends Component {
       {user: 
         {
         isProfileCreated : true,
-        name: "",
-        gender: "",
-        age: null,
-        city: "",
-        state: "",
-        zip: null,
-        height: null,
-        weight: null,
-        activity: "",
-        fitnessLevel: 0,
+        name: "Kevin",
+        gender: "Male",
+        age: 29,
+        city: "Napa",
+        state: "CA",
+        zip: 94558,
+        height: 174,
+        weight: 95,
+        activity: "Not Active",
+        fitnessLevel: 2,
+        recommendedTrailLevel: "somewhat easy"
         }
       }
   );
@@ -72,6 +77,7 @@ export default class App extends Component {
         weight: null,
         activity: "",
         fitnessLevel: 0,
+        recommendedTrailLevel: ""
         }
       }
   );
@@ -108,6 +114,7 @@ export default class App extends Component {
             <Route exact path="/profile">
               <Profile 
               
+              userState={this.state.user}
               calculateFitness={this.calculateFitness.bind(this)} 
               deleteProfile={this.deleteProfile.bind(this)} 
 
@@ -119,6 +126,7 @@ export default class App extends Component {
             <Route exact path="/profile/edit">
               <UserForm 
               
+              userState={this.state.user}
               calculateFitness={this.calculateFitness.bind(this)} 
               deleteProfile={this.deleteProfile.bind(this)} 
 
