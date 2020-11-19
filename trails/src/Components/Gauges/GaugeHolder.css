@@ -1,4 +1,5 @@
 .Gaugeholder {
-  align-items: center;
+  align-items: top;
   text-align: center;
+  height: max-content;
 }
