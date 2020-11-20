@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled';
 import Value from './Value.js'
-import SmallerValue from './SmallerValue.js'
 
 const TrailTitle = (props) => {
 
@@ -23,8 +22,8 @@ const TrailTitle = (props) => {
     `
     return (
         <Card>
-            <Value value={props.value}/>
-            <SmallerValue value={props.location}/>
+            <Value value={props.value} fontsize={2}/>
+            <Value value={props.location} fontweight={600} fontsize={1.3}/>
             <TextContent>{props.number}</TextContent>
         </Card>
      );
