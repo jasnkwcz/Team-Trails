@@ -52,3 +52,32 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+
+.profilePages {
+  background-color: white;
+}
+
+/* .points th, tr, td {
+  border-style: solid;
+} */
+
+.points {
+  display: table-cell;
+}
+
+
+.points table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin: 2px;
+}
+.points th, td {
+  padding: 5px;
+}
+.points th {
+  text-align: left;
+}

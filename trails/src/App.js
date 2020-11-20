@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 
 export default class App extends Component {
+  
   constructor(props){
     super(props);
     
@@ -28,8 +29,8 @@ export default class App extends Component {
         zip: null,
         height: null,
         weight: null,
-        activity: "",
-        fitnessLevel: 0,
+        activity: null,
+        fitnessLevel: null
       },
       location: {
         lat: 0,
@@ -39,30 +40,86 @@ export default class App extends Component {
 
   }
 
+
   calculateFitness() {
-    this.setState(
-      {user: 
-        {
-        isProfileCreated : true,
-        name: "Kevin",
-        gender: "Male",
-        age: 29,
-        city: "Napa",
-        state: "CA",
-        zip: 94558,
-        height: 174,
-        weight: 95,
-        activity: "Not Active",
-        fitnessLevel: 2,
-        recommendedTrailLevel: "somewhat easy"
-        }
+
+    let calcDA = parseInt(this.state.user.activity);
+    let calcAge = parseInt(this.state.user.age)
+    let calcWeight =  parseInt(this.state.user.weight)
+    let calcHeight = parseInt(this.state.user.height)
+
+    let agePts = 0;
+    let BMIpts = 0;
+
+    let calculatedFitness = calcDA
+
+    if(calcAge >= 6 && calcAge <= 17){
+      agePts = 5
+      calculatedFitness += 5
+  } 
+  else if (calcAge >= 18 && calcAge <= 64) {
+      agePts = 3
+      calculatedFitness += 3
+  } 
+  else if (calcAge >= 65) {
+      agePts = 1
+      calculatedFitness += 1
+  } 
+  else {
+      agePts = 0
+      calculatedFitness = 0
+  }
+
+  let BMI = calcWeight / ((calcHeight/100)**2)
+
+  if (BMI >= 18.5 && BMI <= 24.9) {
+      BMIpts = 2
+      calculatedFitness += 2
+  }
+
+  let sum = calculatedFitness
+
+  let result = Math.round(calculatedFitness * 5 / 12);
+
+
+
+
+    let textWithFitness = prevState => ({
+      ...prevState,
+      user: {
+        ...prevState.user,
+        fitnessLevel: result
       }
-  );
-    return;
+    })
+    this.setState(textWithFitness);
+
+
+
+
+    let textWithCreatedProf = prevState => ({
+      ...prevState,
+      user: {
+        ...prevState.user,
+        isProfileCreated: true
+      }
+    })
+    this.setState(textWithCreatedProf);
+
   }
 
 
-  deleteProfile() {
+
+
+  updateText = (text) => {
+
+    this.setState( text );
+
+  }
+
+
+
+
+  deleteProfile(evt) {
     this.setState(
       {user: 
         {
@@ -75,9 +132,8 @@ export default class App extends Component {
         zip: null,
         height: null,
         weight: null,
-        activity: "",
-        fitnessLevel: 0,
-        recommendedTrailLevel: ""
+        activity: null,
+        fitnessLevel: null
         }
       }
   );
@@ -116,7 +172,8 @@ export default class App extends Component {
               
               userState={this.state.user}
               calculateFitness={this.calculateFitness.bind(this)} 
-              deleteProfile={this.deleteProfile.bind(this)} 
+              deleteProfile={this.deleteProfile.bind(this)}
+              updateText={this.updateText.bind(this)}
 
               />
             </Route>
@@ -129,6 +186,7 @@ export default class App extends Component {
               userState={this.state.user}
               calculateFitness={this.calculateFitness.bind(this)} 
               deleteProfile={this.deleteProfile.bind(this)} 
+              updateText={this.updateText.bind(this)}
 
               />
             </Route>
