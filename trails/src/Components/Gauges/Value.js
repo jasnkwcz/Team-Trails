@@ -2,10 +2,13 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 const Value = (props) => {
+    var fontsize = props.fontsize
+    var fontweight = props.fontweight
+
     const Value = styled.h1`
     font-family: 'Poppins', sans-serif;
-    font-size: 1.7rem;
-    font-weight: 300;
+    font-size: ${fontsize}rem;
+    font-weight: ${fontweight};
     `
     var value = props.value
     var number = props.number
