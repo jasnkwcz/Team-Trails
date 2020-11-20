@@ -9,6 +9,11 @@ import {
 
 export default class TrailCard extends Component
 {
+    constructor(props){
+        super(props);
+    }
+
+
     render(){
         return(
             <div>
@@ -16,6 +21,11 @@ export default class TrailCard extends Component
                 <h3>Location: lat/long</h3>
                 <DirectionsButton />
                 <Link to="/trails/equipment"><button>Equipment</button></Link>
+
+                <div>
+                    <h3> CITY {this.props.userState.city} STATE {this.props.userState.state} </h3>
+                </div>
+
             </div>
         )
     }
