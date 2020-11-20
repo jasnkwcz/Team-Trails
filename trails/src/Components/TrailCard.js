@@ -11,6 +11,13 @@ export default class TrailCard extends Component
 {
     constructor(props){
         super(props);
+
+        this.state = {
+            startCity : this.props.userState.city,
+            startState : this.props.userState.state
+        }
+
+
     }
 
 
@@ -19,12 +26,8 @@ export default class TrailCard extends Component
             <div>
                 <h2>Trail Name</h2>
                 <h3>Location: lat/long</h3>
-                <DirectionsButton />
+                <DirectionsButton userCity={this.state.startCity} userState={this.state.startState}/>
                 <Link to="/trails/equipment"><button>Equipment</button></Link>
-
-                <div>
-                    <h3> CITY {this.props.userState.city} STATE {this.props.userState.state} </h3>
-                </div>
 
             </div>
         )
