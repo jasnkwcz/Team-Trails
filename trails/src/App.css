@@ -2,14 +2,37 @@
   text-align: center;
 }
 
+.centerHeader{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 10vh;
+  background-color: lightsteelblue;
+  align-content: center;
+}
+
 .navlist{
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  background-color: lightsteelblue;
+  width: 100%;
+  list-style-type: none;
   justify-content: space-between;
 }
 
 .navitem{
   margin: auto;
+  padding: 14px 25px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
 }
 
 .modalButton{

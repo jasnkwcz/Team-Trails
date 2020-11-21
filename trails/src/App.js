@@ -199,7 +199,7 @@ export default class App extends Component {
               />
             </Route>
             <Route exact path="/trails">
-              <Trails />
+              <TrailCard userState={this.state.user} />
             </Route>
             <Route exact path="/profile/edit">
               <UserForm 
