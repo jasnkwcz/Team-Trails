@@ -8,14 +8,31 @@
   justify-content: center;
 }
 
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  min-height: 10vh;
+  background-color: lightsteelblue;
+  align-content: center;
+}
+
+
 .navlist{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  background-color: lightsteelblue;
+  width: 100%;
+  list-style-type: none;
 }
 
 .navitem{
   margin: auto;
+  padding: 14px 25px;
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
 }
 
 .modalButton{
@@ -35,21 +52,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -60,12 +62,10 @@
 }
 
 
-
-
-
 .profilePages {
   background-color: white;
 }
+
 
 /* .points th, tr, td {
   border-style: solid;

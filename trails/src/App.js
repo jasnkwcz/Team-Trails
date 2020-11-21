@@ -145,27 +145,28 @@ export default class App extends Component {
     return (
       <Router>
         <div>
-          <h1 className="centerHeader">
+          <h1 className="centerHeader"> 
             Hiking Trails Just For You
           </h1>
-          <ul className="navlist">
-            <li>
-              <Link className="navitem" to="/">Home</Link>
-            </li>
-            <li>
-            {
-              this.state.user.isProfileCreated ?
-              <Link className="navitem" to="/profile">My Profile</Link> :
-              <Link className="navitem" to="/profile/edit">Create Profile</Link>
-            } 
-            </li>
-            <li>
-              <Link className="navitem" to="/trails">Nearby Trails</Link>
-            </li>
-          </ul>
-  
-          <hr />
-  
+          <nav> 
+            <ul className="navlist">
+              <li>
+                <Link className="navitem" to="/">Home</Link>
+              </li>
+              <li>
+              {
+                this.state.user.isProfileCreated ?
+                <Link className="navitem" to="/profile">My Profile</Link> :
+                <Link className="navitem" to="/profile/edit">Create Profile</Link>
+              } 
+              </li>
+              <li>
+                <Link className="navitem" to="/trails">Nearby Trails</Link>
+              </li>
+            </ul>
+          </nav>
+        <hr />
+
           <Switch>
             <Route exact path="/">
               <Home />
