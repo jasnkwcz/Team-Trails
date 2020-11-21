@@ -55,7 +55,7 @@ const Gauge = (props) => {
     return (
         <Card>
             <GaugeChart id={props.id} nrOfLevels={30} arcPadding={0.01} colors={['lightgreen','orange', 'red']} percent={percent} hideText={true} />
-            <Value  value={props.value} number={number} unit={props.unit}/>
+            <Value  value={props.value} number={number} unit={props.unit} fontsize={1.5}/>
         </Card>
      );
 }
