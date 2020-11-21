@@ -1,3 +1,4 @@
+  
 document.addEventListener('DOMContentLoaded', activateButton);
 
 function activateButton() {
@@ -21,10 +22,15 @@ function activateButton() {
       if (req.status >= 200 && req.status < 400) {
         var response = JSON.parse(req.responseText);
         console.log(response);
+
+
         document.getElementById("weatherLat").textContent =response.coord.lat;
         document.getElementById("weatherLong").textContent =response.coord.lon;
 
 
+
+
+        fetchData(response.coord.lat, response.coord.lon);
 
       } 
 	else {
@@ -35,7 +41,8 @@ function activateButton() {
     });
     req.send(setURL);
     event.preventDefault();
+
   });
+ 
 }
-var getLocationLat = 47.64;
-var getLocationLon = -122.36;
+
