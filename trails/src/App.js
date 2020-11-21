@@ -145,6 +145,9 @@ export default class App extends Component {
     return (
       <Router>
         <div>
+          <h1 className="centerHeader">
+            Hiking Trails Just For You
+          </h1>
           <ul className="navlist">
             <li>
               <Link className="navitem" to="/">Home</Link>
