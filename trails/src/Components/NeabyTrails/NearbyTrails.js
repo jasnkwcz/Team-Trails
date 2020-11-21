@@ -20,15 +20,21 @@ function fetchData(lat, lon) {
       const html = data.trails.map(user => {
           return `
           <div class="user">
-          <p><img src="${user.imgMedium}" alt="${user.name}" /></p>
-          <h1>${user.name}</h1>
-            <p>Location: ${user.location}</p>
-            <p>Length: ${user.length} miles</p>
-            <p>Difficulty: ${user.difficulty}</p>
-            <p>Trailhead: (${user.latitude}, ${user.longitude})</p>
-            <p>Description: ${user.summary}</p>
-            <button id="Equipment" type="submit">Equipment</button><button id="Navigate" type="submit">Directions</button>
+          <div>
+          <img src="${user.imgMedium}" alt="${user.name}" />
           </div>
+          <div>
+<ul>
+          <p><h1>${user.name}</h1></p>
+          <p>Location: ${user.location}</p>
+          <p>Length: ${user.length} miles</p>
+          <p>Difficulty: ${user.difficulty}</p>
+          <p>Trailhead: (${user.latitude}, ${user.longitude})</p>
+          <p>Description: ${user.summary}</p>
+          <br><button id="Equipment" type="submit">Equipment</button><button id="Navigate" type="submit">Directions</button>
+</ul>
+          </div>
+        </div>
           `;
       })
       .join("");
