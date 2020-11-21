@@ -23,14 +23,14 @@ export default class App extends Component {
         isProfileCreated : false,
         name: "",
         gender: "",
-        age: null,
+        age: 0,
         city: "",
         state: "",
-        zip: null,
-        height: null,
-        weight: null,
-        activity: null,
-        fitnessLevel: null
+        zip: 0,
+        height: 0,
+        weight: 0,
+        activity: 0,
+        fitnessLevel: 0
       },
       location: {
         lat: 0,
@@ -39,6 +39,21 @@ export default class App extends Component {
     }
 
   }
+
+
+
+
+  updateText = (text) => {
+
+    this.setState( text );
+
+  }
+
+
+
+
+
+
 
 
   calculateFitness() {
@@ -56,33 +71,40 @@ export default class App extends Component {
     if(calcAge >= 6 && calcAge <= 17){
       agePts = 5
       calculatedFitness += 5
-  } 
-  else if (calcAge >= 18 && calcAge <= 64) {
-      agePts = 3
-      calculatedFitness += 3
-  } 
-  else if (calcAge >= 65) {
-      agePts = 1
-      calculatedFitness += 1
-  } 
-  else {
-      agePts = 0
-      calculatedFitness = 0
+    } 
+    else if (calcAge >= 18 && calcAge <= 64) {
+        agePts = 3
+        calculatedFitness += 3
+    } 
+    else if (calcAge >= 65) {
+        agePts = 1
+        calculatedFitness += 1
+    } 
+    else {
+        agePts = 0
+        calculatedFitness = 0
+    }
+
+    let BMI = calcWeight / ((calcHeight/100)**2)
+
+    if (BMI >= 18.5 && BMI <= 24.9) {
+        BMIpts = 2
+        calculatedFitness += 2
+    }
+
+
+    let result = Math.round(calculatedFitness * 5 / 12);
+
+
+    this.updateFitness(result);
+
+    this.updateIsProfileCreated();
+
+
   }
 
-  let BMI = calcWeight / ((calcHeight/100)**2)
 
-  if (BMI >= 18.5 && BMI <= 24.9) {
-      BMIpts = 2
-      calculatedFitness += 2
-  }
-
-  let sum = calculatedFitness
-
-  let result = Math.round(calculatedFitness * 5 / 12);
-
-
-
+  updateFitness(result) {
 
     let textWithFitness = prevState => ({
       ...prevState,
@@ -91,10 +113,13 @@ export default class App extends Component {
         fitnessLevel: result
       }
     })
+
     this.setState(textWithFitness);
 
+  };
 
 
+  updateIsProfileCreated() {
 
     let textWithCreatedProf = prevState => ({
       ...prevState,
@@ -103,20 +128,10 @@ export default class App extends Component {
         isProfileCreated: true
       }
     })
+
     this.setState(textWithCreatedProf);
 
-  }
-
-
-
-
-  updateText = (text) => {
-
-    this.setState( text );
-
-  }
-
-
+  };
 
 
   deleteProfile(evt) {
@@ -141,32 +156,30 @@ export default class App extends Component {
   }
 
 
+
+
   render() {
     return (
       <Router>
         <div>
-          <h1 className="centerHeader"> 
-            Hiking Trails Just For You
-          </h1>
-          <nav> 
-            <ul className="navlist">
-              <li>
-                <Link className="navitem" to="/">Home</Link>
-              </li>
-              <li>
-              {
-                this.state.user.isProfileCreated ?
-                <Link className="navitem" to="/profile">My Profile</Link> :
-                <Link className="navitem" to="/profile/edit">Create Profile</Link>
-              } 
-              </li>
-              <li>
-                <Link className="navitem" to="/trails">Nearby Trails</Link>
-              </li>
-            </ul>
-          </nav>
-        <hr />
-
+          <ul className="navlist">
+            <li>
+              <Link className="navitem" to="/">Home</Link>
+            </li>
+            <li>
+            {
+              this.state.user.isProfileCreated ?
+              <Link className="navitem" to="/profile">My Profile</Link> :
+              <Link className="navitem" to="/profile/edit">Create Profile</Link>
+            } 
+            </li>
+            <li>
+              <Link className="navitem" to="/trails">Nearby Trails</Link>
+            </li>
+          </ul>
+  
+          <hr />
+  
           <Switch>
             <Route exact path="/">
               <Home />
@@ -182,7 +195,7 @@ export default class App extends Component {
               />
             </Route>
             <Route exact path="/trails">
-              <TrailCard userState={this.state.user}/>
+              <Trails />
             </Route>
             <Route exact path="/profile/edit">
               <UserForm 
