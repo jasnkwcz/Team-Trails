@@ -129,7 +129,12 @@ export default class Profile extends Component{
           <p style={{color: 'green', fontWeight: 'bold'}}>Fitness Level: <span id="showActivityNum">{fitness}</span></p>
           <br />
           <p>
-      Your Fitness Level has been calculated to <span className="level" style={{color: 'green'}}>level {fitness}</span> out of 5. Here's the formula:<br />
+            Your Fitness Level has been calculated to <span className="level" style={{color: 'green'}}>level {fitness}</span>. Here's the formula:<br />
+          </p>
+          <p>
+            <h3 style={{marginLeft: '11%', textDecoration: 'underline'}}>
+              Points System
+            </h3>
           </p>
           <div class="points">
             <strong>Daily Activity:</strong><br /><table>
