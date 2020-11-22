@@ -6,3 +6,24 @@ body {
     background-size: cover;
     height: 100%;
   }
+
+.user img:hover {
+  opacity: .9;
+}
+
+.user {
+  background-color: #ffffff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+  
+  display: flex;
+
+
+align-items: center;
+}
+@media (max-width: 320px) {
+.flexcontainer {
+display: block;
+}
+}

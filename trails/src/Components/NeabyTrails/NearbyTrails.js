@@ -19,6 +19,8 @@ function fetchData(lat, lon) {
       console.log(data.trails);
       const html = data.trails.map(user => {
           return `
+
+
           <div class="user">
           <div>
           <img src="${user.imgMedium}" alt="${user.name}" />
