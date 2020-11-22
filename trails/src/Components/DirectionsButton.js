@@ -9,14 +9,14 @@ export default class DirectionsButton extends Component{
             state : this.props.userState
         }
     }
-    /*
+    
     provideLatLong() {
         return (this.state);
 
         
         
     }
-*/
+
 
     getDirections(event){
         event.preventDefault();
