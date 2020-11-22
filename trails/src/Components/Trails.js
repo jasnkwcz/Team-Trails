@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import TrailCard from "./TrailCard";
 import FormModal from "./FormModal";
 
 export default class Trails extends Component {
