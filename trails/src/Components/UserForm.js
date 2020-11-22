@@ -8,10 +8,17 @@ export default class UserForm extends Component{
   constructor(props){
     super(props);
     
+    this.calculateClick = this.calculateClick.bind(this);
     this.updateInfo = this.updateInfo.bind(this);
 
   }
 
+
+
+  calculateClick(evt){
+
+    evt.preventDefault();
+  } 
 
 
   updateInfo(event) {
