@@ -25,45 +25,7 @@ export default class Profile extends Component{
     }
     
     
-    // calculateFitLevel(DA, age, kg, cm) {
-    //     let result = parseInt(DA)
-    //     let agePts = 0
-    //     let BMIpts = 0
-    
-    //     if(age >= 6 && age <= 17){
-    //         agePts = 5
-    //         result += 5
-    //     } 
-    //     else if (age >= 18 && age <= 64) {
-    //         agePts = 3
-    //         result += 3
-    //     } 
-    //     else if (age >= 65) {
-    //         agePts = 1
-    //         result += 1
-    //     } 
-    //     else {
-    //         agePts = 0
-    //         result = 0
-    //     }
-    
-    //     let BMI = kg / ((cm/100)**2)
-    
-    //     if (BMI >= 18.5 && BMI <= 24.9) {
-    //         BMIpts = 2
-    //         result += 2
-    //     }
-    
-    //     let sum = result
-    
-    //     result = Math.round(result * 5 / 12);
-    
-    //     document.getElementById("showWork1").textContent = `${Math.round(BMI*10)/10} = ${kg} / (${cm}/100)^2`
-    //     document.getElementById("showWork2").textContent = `${sum} = ${DA} + ${agePts} + ${BMIpts}`
-    //     document.getElementById("showWork3").textContent = `${result} = round(${sum} * 5 / 12)`
-    
-    //     return result;
-    // }
+    // Dead Code was deleted here
     
 
     componentDidMount() {
@@ -167,7 +129,12 @@ export default class Profile extends Component{
           <p style={{color: 'green', fontWeight: 'bold'}}>Fitness Level: <span id="showActivityNum">{fitness}</span></p>
           <br />
           <p>
-      Your Fitness Level has been calculated to <span className="level" style={{color: 'green'}}>{fitness}</span>. Here's the formula:<br />
+            Your Fitness Level has been calculated to <span className="level" style={{color: 'green'}}>level {fitness}</span>. Here's the formula:<br />
+          </p>
+          <p>
+            <h3 style={{marginLeft: '11%', textDecoration: 'underline'}}>
+              Points System
+            </h3>
           </p>
           <div class="points">
             <strong>Daily Activity:</strong><br /><table>
