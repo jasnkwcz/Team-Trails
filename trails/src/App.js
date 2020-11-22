@@ -4,7 +4,7 @@ import Profile from "./Components/Profile";
 import Home from "./Components/Home";
 import Equipment from "./Components/Equipment";
 import UserForm from "./Components/UserForm";
-import Trails from "./Components/Trails";
+import Trails from "./Components/NeabyTrails/Trails";
 import {
   BrowserRouter as Router,
   Switch,

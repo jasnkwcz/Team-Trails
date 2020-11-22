@@ -1,13 +1,18 @@
 import React, { Component } from "react";
-import FormModal from "./FormModal";
+import FormModal from "../FormModal";
+import "./NearbyTrailsStyle.css";
 
 export default class Trails extends Component {
 
     constructor(props){
       super(props);
       this.state = {
-        showModal : false
+        showModal : false,
+        zip: 0,
+        lat: 0,
+        long: 0
       }
+
     }
   
     //modal is rendered on button click
@@ -20,7 +25,9 @@ export default class Trails extends Component {
       this.setState({showModal:false});
     }
   
-  
+    handleZipInput = (event) => {
+      this.setState({zip: event.target.value});
+    }
   
   render() {
     return (
@@ -33,7 +40,7 @@ export default class Trails extends Component {
 	        <label>
           Zip Code:
           </label>
-          <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" />
+          <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" value={this.state.zip} onChange={this.handleZipInput.bind(this)}/>
         <span id="weatherLat"></span> <span>, </span> <span id="weatherLong"></span>
 	<br />
 	<button id="nearbyTrails" type="submit">See nearby trails</button>
