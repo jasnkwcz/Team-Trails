@@ -15,10 +15,11 @@ export default class TrailCard extends Component {
                     <p>Location: {this.props.location}</p>
                     <p>Length: {this.props.length} miles</p>
                     <p>Difficulty: {this.props.difficulty}</p>
-                    <p>Trailhead: ({this.props.latitude}, ${this.props.longitude})</p>
+                    <p>Trailhead: ({this.props.latitude}, {this.props.longitude})</p>
                     <p>Description: {this.props.summary}</p>
                     <br />
-                    <button id="Equipment" type="submit">Equipment</button><button id="Navigate" type="submit">Directions</button>
+                    <button id="Equipment">Equipment</button>
+                    <button id="Navigate">Directions</button>
                 </ul>
             </div>
         </div>

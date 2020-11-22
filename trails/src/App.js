@@ -1,5 +1,5 @@
 import React , { Component } from "react";
-import './App.css';
+import './Styles/App.css';
 import Profile from "./Components/Profile";
 import Home from "./Components/Home";
 import Equipment from "./Components/Equipment";

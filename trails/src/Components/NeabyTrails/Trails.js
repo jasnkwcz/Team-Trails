@@ -79,14 +79,15 @@ export default class Trails extends Component {
           <span id="weatherLat"></span> <span> </span> <span id="weatherLong"></span>
 	        <br />
 	        <button id="nearbyTrails" onClick={this.handleZipButton.bind(this)}>See nearby trails</button>
+                  <button type="button"  onClick={this.showModalHandler.bind(this)}>Get hiking trails just for me!</button>
+
         </form>
-        <button type="button" className="modalButton" onClick={this.showModalHandler.bind(this)}>Get hiking trails just for me!</button>
         <FormModal showModal={this.state.showModal} hideModalHandler={this.hideModalHandler.bind(this)}></FormModal>
         <ul>
           {
             this.state.list.map((item) => {
               return (
-                <TrailCard trailName={item.name} location={item.location} length={item.length} difficulty={item.difficulty} latitude={item.latitute} longitude={item.longitude} summary={item.summary} imgMedium={item.imgMedium}/>
+                <TrailCard trailName={item.name} location={item.location} length={item.length} difficulty={item.difficulty} latitude={item.latitude} longitude={item.longitude} summary={item.summary} imgMedium={item.imgMedium}/>
               )
             })
           }
