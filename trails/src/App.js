@@ -141,14 +141,14 @@ export default class App extends Component {
         isProfileCreated : false,
         name: "",
         gender: "",
-        age: null,
+        age: 0,
         city: "",
         state: "",
-        zip: null,
-        height: null,
-        weight: null,
-        activity: null,
-        fitnessLevel: null
+        zip: 0,
+        height: 0,
+        weight: 0,
+        activity: 0,
+        fitnessLevel: 0
         }
       }
   );
