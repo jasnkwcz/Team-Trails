@@ -75,7 +75,7 @@ export default class Trails extends Component {
 	        <label>
           Zip Code:
           </label>
-          <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" value={this.state.zip} onChange={this.handleZipInput.bind(this)}/>
+          <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" value={this.state.zip} onChange={this.handleZipInput.bind(this)}></input>
           <span id="weatherLat"></span> <span> </span> <span id="weatherLong"></span>
 	        <br />
 	        <button id="nearbyTrails" onClick={this.handleZipButton.bind(this)}>See nearby trails</button>

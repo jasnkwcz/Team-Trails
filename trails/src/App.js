@@ -32,9 +32,11 @@ export default class App extends Component {
         fitnessLevel: 0
       },
       location: {
+        zip: 0,
         lat: 0,
         long: 0
-      }
+      },
+
     }
 
   }
