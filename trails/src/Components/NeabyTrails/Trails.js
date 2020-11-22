@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import FormModal from "../FormModal";
 import "./NearbyTrailsStyle.css";
+import axios from "axios";
+import TrailCard from "./TrailCard";
 
 export default class Trails extends Component {
 
@@ -8,10 +10,12 @@ export default class Trails extends Component {
       super(props);
       this.state = {
         showModal : false,
-        zip: 0,
-        lat: 0,
-        long: 0
+        zip: "",
+        lat: "",
+        lon: "",
+        list: [],
       }
+      this.getTrails.bind(this);
 
     }
   
@@ -28,6 +32,37 @@ export default class Trails extends Component {
     handleZipInput = (event) => {
       this.setState({zip: event.target.value});
     }
+
+    getLatLong = () => {
+      const weatherURL = "http://api.openweathermap.org/data/2.5/weather?";
+      const apiKey = "&appid=c681a7fcd870c24ab1f104b8df9e9f7e";
+      const buildURL = "zip=";
+      const zip = this.state.zip;
+      var setURL = weatherURL + buildURL + zip + apiKey + "&units=imperial";
+      axios.get(setURL).then(res => {
+        this.setState({lat: res.data.coord.lat, lon: res.data.coord.lon});
+        this.getTrails();
+      });
+    }
+
+    getTrails = () => {
+      //build the trail API request URL
+      var getLat = this.state.lat;
+      var getLon = "&lon=" + this.state.lon;
+      var apiURL = "https://www.hikingproject.com/data/get-trails?lat=";
+      var apiKey = "&maxDistance=10&key=200969017-49dfe1c23872438379f0a1e5e5314b8e";
+      var buildLink = apiURL + getLat + getLon + apiKey;
+      //send request to hiking trails api
+      axios.get(buildLink).then(res => {
+        console.log(res);
+        this.setState({list: res.data.trails});
+      })
+    }
+
+    handleZipButton = (evt) => {
+      evt.preventDefault();
+      this.getLatLong();
+    }
   
   render() {
     return (
@@ -41,13 +76,21 @@ export default class Trails extends Component {
           Zip Code:
           </label>
           <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" value={this.state.zip} onChange={this.handleZipInput.bind(this)}/>
-        <span id="weatherLat"></span> <span>, </span> <span id="weatherLong"></span>
-	<br />
-	<button id="nearbyTrails" type="submit">See nearby trails</button>
-      
-    </form>
+          <span id="weatherLat"></span> <span> </span> <span id="weatherLong"></span>
+	        <br />
+	        <button id="nearbyTrails" onClick={this.handleZipButton.bind(this)}>See nearby trails</button>
+        </form>
         <button type="button" className="modalButton" onClick={this.showModalHandler.bind(this)}>Get hiking trails just for me!</button>
         <FormModal showModal={this.state.showModal} hideModalHandler={this.hideModalHandler.bind(this)}></FormModal>
+        <ul>
+          {
+            this.state.list.map((item) => {
+              return (
+                <TrailCard trailName={item.name} location={item.location} length={item.length} difficulty={item.difficulty} latitude={item.latitute} longitude={item.longitude} summary={item.summary} imgMedium={item.imgMedium}/>
+              )
+            })
+          }
+        </ul>
       </div>
     );
   }

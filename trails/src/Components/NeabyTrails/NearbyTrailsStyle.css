@@ -1,3 +1,5 @@
+
+/*
 body {
     background-image: url("https://wallpaperfx.com/view_image/green-mountains-1920x1080-wallpaper-3104.jpg");
     background-repeat: no-repeat;
@@ -6,12 +8,13 @@ body {
     background-size: cover;
     height: 100%;
   }
+  */
 
-.user img:hover {
+.TrailCard img:hover {
   opacity: .9;
 }
 
-.user {
+.TrailCard {
   background-color: #ffffff;
   padding: 1rem;
   margin-bottom: 1rem;
