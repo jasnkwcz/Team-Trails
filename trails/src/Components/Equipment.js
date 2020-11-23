@@ -7,17 +7,18 @@ import GaugeHolder from './Gauges/GaugeHolder';
 import './Equipment.css'
 
 export default class Equipment extends Component {
+  state = {
+    id: 7001635
+  }
 
 render() {
-  const trailid = 7001635;
   return (
     <div>
-      
       <div className= "weatherContainer">
         <WeatherForecast  />
       </div>
       <div className = "gaugeContainer">
-      <GaugeHolder id="gauge-chart1" width="40%" trailid={trailid}/>
+      <GaugeHolder id="gauge-chart1" width="40%" trailid={this.state.id}/>
       </div>
       <Accordion title ="Recommended Equipment" active={true}> 
       <EquipmentManager/>
