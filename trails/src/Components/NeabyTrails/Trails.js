@@ -14,6 +14,8 @@ export default class Trails extends Component {
         lat: "",
         lon: "",
         list: [],
+        newCity: this.props.userState.city,
+        newState: this.props.userState.state
       }
       this.getTrails.bind(this);
 
@@ -67,6 +69,7 @@ export default class Trails extends Component {
   render() {
     return (
       <div>
+
         <h2>Nearby Trails:</h2>
         <p>Here, you can enter your zip code to see trails near you. If you've created a user profile, you can click the "Get trails just for me" button to filter the results based on your fitness level and desired challenege level.</p>
         <hr></hr>
@@ -87,7 +90,7 @@ export default class Trails extends Component {
           {
             this.state.list.map((item) => {
               return (
-                <TrailCard trailName={item.name} location={item.location} length={item.length} difficulty={item.difficulty} latitude={item.latitude} longitude={item.longitude} summary={item.summary} imgMedium={item.imgMedium}/>
+                <TrailCard originCity={this.state.newCity} originState={this.state.newState} trailName={item.name} location={item.location} length={item.length} difficulty={item.difficulty} latitude={item.latitude} longitude={item.longitude} summary={item.summary} imgMedium={item.imgMedium} />
               )
             })
           }

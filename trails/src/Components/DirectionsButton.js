@@ -6,7 +6,9 @@ export default class DirectionsButton extends Component{
 
         this.state = {
             city : this.props.userCity,
-            state : this.props.userState
+            state : this.props.userState,
+            lat: this.props.latitude,
+            long: this.props.longitude
         }
     }
     
@@ -21,7 +23,7 @@ export default class DirectionsButton extends Component{
     getDirections(event){
         event.preventDefault();
 
-        const url = "https://www.google.com/maps/dir/?api=1&origin=" + this.state.city + "+" + this.state.state + "&destination=Pike+Place+Market+Seattle+WA";
+        const url = "https://www.google.com/maps/dir/?api=1&origin=" + this.state.city + "+" + this.state.state + "&destination=" + this.state.lat + "," + this.state.long;
         window.open(url, "_blank");
     }
 
