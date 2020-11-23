@@ -1,7 +1,16 @@
 import React, { Component } from "react";
+import DirectionsButton from "../DirectionsButton";
 import "./NearbyTrailsStyle.css";
 
 export default class TrailCard extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            localCity: this.props.originCity,
+            localState: this.props.originState
+        }
+    }
 
     render() {
         return(
@@ -19,7 +28,7 @@ export default class TrailCard extends Component {
                     <p>Description: {this.props.summary}</p>
                     <br />
                     <button id="Equipment">Equipment</button>
-                    <button id="Navigate">Directions</button>
+                    <DirectionsButton userCity={this.state.localCity} userState={this.state.localState} latitude={this.props.latitude} longitude={this.props.longitude}/>
                 </ul>
             </div>
         </div>
