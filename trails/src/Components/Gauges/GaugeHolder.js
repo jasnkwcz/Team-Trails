@@ -9,7 +9,7 @@ class GaugeHolder extends Component {
         this.state = {
             items: [],
             isLoaded: false,
-            id: 7001635
+            id: props.trailid
         }
     }
     componentDidMount() {
