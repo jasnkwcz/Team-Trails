@@ -1,6 +1,6 @@
 import React from 'react'
 import data from '../EquipmentSorting/data';
-import Equipment from '../EquipmentSorting/Equipment'
+import Equipment from './EquipmentCard'
 
 function EquipmentManager() {
     return (
