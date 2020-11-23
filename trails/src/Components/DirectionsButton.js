@@ -12,14 +12,6 @@ export default class DirectionsButton extends Component{
         }
     }
     
-    provideLatLong() {
-        return (this.state);
-
-        
-        
-    }
-
-
     getDirections(event){
         event.preventDefault();
 
