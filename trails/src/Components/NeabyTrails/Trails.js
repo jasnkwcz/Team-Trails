@@ -90,7 +90,7 @@ export default class Trails extends Component {
           {
             this.state.list.map((item) => {
               return (
-                <TrailCard originCity={this.state.newCity} originState={this.state.newState} trailName={item.name} location={item.location} length={item.length} difficulty={item.difficulty} latitude={item.latitude} longitude={item.longitude} summary={item.summary} imgMedium={item.imgMedium} />
+                <TrailCard originCity={this.state.newCity} originState={this.state.newState} trailName={item.name} location={item.location} length={item.length} id = {item.id} difficulty={item.difficulty} latitude={item.latitude} longitude={item.longitude} summary={item.summary} imgMedium={item.imgMedium} />
               )
             })
           }
