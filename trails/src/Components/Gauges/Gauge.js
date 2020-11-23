@@ -19,8 +19,6 @@ const Gauge = (props) => {
     color: white;
     line-height: 0px
     `
-
-
     var percent = ''
     switch (props.percent) {
         case "black":
