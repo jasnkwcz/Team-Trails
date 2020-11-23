@@ -12,6 +12,7 @@ constructor(props) {
     this.state = {
       data: [],
       city: null,
+      
       isLoaded: false
     };
   }

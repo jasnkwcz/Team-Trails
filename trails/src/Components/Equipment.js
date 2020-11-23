@@ -8,7 +8,8 @@ import './Equipment.css'
 
 export default class Equipment extends Component {
   state = {
-    id: 7001635
+    id: 7001635,
+    zipcode: 81611
   }
 
 render() {
