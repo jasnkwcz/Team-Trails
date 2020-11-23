@@ -9,13 +9,15 @@ import './Equipment.css'
 export default class Equipment extends Component {
 
 render() {
+  const trailid = 7001635;
   return (
     <div>
+      
       <div className= "weatherContainer">
         <WeatherForecast  />
       </div>
       <div className = "gaugeContainer">
-      <GaugeHolder id="gauge-chart1" width="40%"/>
+      <GaugeHolder id="gauge-chart1" width="40%" trailid={trailid}/>
       </div>
       <Accordion title ="Recommended Equipment" active={true}> 
       <EquipmentManager/>
