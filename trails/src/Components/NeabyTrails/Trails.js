@@ -15,7 +15,9 @@ export default class Trails extends Component {
         lon: "",
         list: [],
         newCity: this.props.userState.city,
-        newState: this.props.userState.state
+        newState: this.props.userState.state,
+        difficulty: 0,
+        filter: false
       }
       this.getTrails.bind(this);
 
@@ -29,6 +31,12 @@ export default class Trails extends Component {
     //modal is hidden on button click inside modal
     hideModalHandler = (event) =>{
       this.setState({showModal:false});
+    }
+
+    //handler for when modal filter is turned on
+    handleModalSwitch = (evt) => {
+      evt.preventDefault();
+      this.setState({filter: !this.state.filter});
     }
   
     handleZipInput = (event) => {
@@ -85,7 +93,7 @@ export default class Trails extends Component {
                   <button type="button"  onClick={this.showModalHandler.bind(this)}>Get hiking trails just for me!</button>
 
         </form>
-        <FormModal showModal={this.state.showModal} hideModalHandler={this.hideModalHandler.bind(this)}></FormModal>
+        <FormModal modalSwitch={this.handleModalSwitch.bind(this)} showModal={this.state.showModal} hideModalHandler={this.hideModalHandler.bind(this)}></FormModal>
         <ul>
           {
             this.state.list.map((item) => {
