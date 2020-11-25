@@ -36,8 +36,7 @@ export default class App extends Component {
         lat: 0,
         long: 0
       },
-      currentTrail: {},
-      trailsList: []
+      currentTrail: {}
 
     }
 
