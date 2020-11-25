@@ -19,6 +19,11 @@ export default class TrailCard extends Component {
     }
 
     render() {
+        const trailinfo = {
+            name: this.props.trailName,
+            location: this.props.location,
+            length: this.props.length
+        }
         return(
         <div className="TrailCard">
           <div>
@@ -33,8 +38,9 @@ export default class TrailCard extends Component {
                     <p>Trailhead: ({this.props.latitude}, {this.props.longitude})</p>
                     <p>Description: {this.props.summary}</p>
                     <br />
-                    <Link to ={"trails/Equipment/"}>Equipment</Link>
-                    <button id="Equipment">Equipment{this.props.id}</button>
+                    
+                    <button id="Equipment" onClick={this.props.equipmentListener} value={trailinfo.name}>Equipment</button>
+                    <li>TEST: {this.props.trailinfo.id}</li>
                     <DirectionsButton userCity={this.state.localCity} userState={this.state.localState} latitude={this.props.latitude} longitude={this.props.longitude}/>
                 </ul>
             </div>

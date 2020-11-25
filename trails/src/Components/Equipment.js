@@ -7,10 +7,15 @@ import GaugeHolder from './Gauges/GaugeHolder';
 import './Equipment.css'
 
 export default class Equipment extends Component {
-  state = {
-    id: 7001635,
-    zipcode: 81611
+  constructor(props){
+    super(props);
+    this.state = {
+      id: 7001635,
+      zipcode: 81611
+    }
   }
+
+
 
 render() {
   return (

@@ -15,9 +15,20 @@ export default class Trails extends Component {
         lon: "",
         list: [],
         newCity: this.props.userState.city,
-        newState: this.props.userState.state
+        newState: this.props.userState.state,
+        difficulty: 0,
+        filter: false,
+        levels: {
+          green: 0,
+          greenBlue: 1,
+          blue: 2,
+          blueBlack: 3,
+          black: 4,
+          dblack: 5
+        }
       }
       this.getTrails.bind(this);
+      this.renderTrail.bind(this);
 
     }
   
@@ -29,6 +40,12 @@ export default class Trails extends Component {
     //modal is hidden on button click inside modal
     hideModalHandler = (event) =>{
       this.setState({showModal:false});
+    }
+
+    //handler for when modal filter is turned on
+    handleModalSwitch = (evt) => {
+      evt.preventDefault();
+      this.setState({filter: !this.state.filter});
     }
   
     handleZipInput = (event) => {
@@ -65,6 +82,29 @@ export default class Trails extends Component {
       evt.preventDefault();
       this.getLatLong();
     }
+
+    getDifficulty = (evt) => {
+      evt.preventDefault();
+      this.setState({difficulty: evt.target.value});
+    }
+
+    /*
+    filter = (evt) => {
+      evt.preventDefault();
+      this.setState({filter: !this.state.filter});
+    }
+*/
+    //if return true, then the given trail should be rendered. otherwise if false, trail should not be rendered
+    renderTrail = (traildiff) => {
+      //calculate the desired difficulty based on user's fitness and filter preference
+      //desired difficulty = userfitness + filteroption (min 0, max 5)
+      let userdiff = this.props.userState.fitnessLevel + this.state.difficulty;
+      if (userdiff < 0) { userdiff = 0; }
+      if (userdiff > 5) { userdiff = 5; }
+      //compare the objective difficulty of the trail (computed from state.levels) to the user's specified difficulty (as difficulty variable)
+      if (this.state.levels[traildiff] === userdiff) { return true };
+      return false;
+    }
   
   render() {
     return (
@@ -73,6 +113,7 @@ export default class Trails extends Component {
         <h2>Nearby Trails:</h2>
         <p>Here, you can enter your zip code to see trails near you. If you've created a user profile, you can click the "Get trails just for me" button to filter the results based on your fitness level and desired challenege level.</p>
         <hr></hr>
+        <p>Current difficulty is: {this.state.difficulty}</p>
         
         <form id="nearbyTrails" method="get">
 	        <label>
@@ -82,15 +123,19 @@ export default class Trails extends Component {
           <span id="weatherLat"></span> <span> </span> <span id="weatherLong"></span>
 	        <br />
 	        <button id="nearbyTrails" onClick={this.handleZipButton.bind(this)}>See nearby trails</button>
-                  <button type="button"  onClick={this.showModalHandler.bind(this)}>Get hiking trails just for me!</button>
-
+          <button type="button"  onClick={this.showModalHandler.bind(this)}>Get hiking trails just for me!</button>
         </form>
-        <FormModal showModal={this.state.showModal} hideModalHandler={this.hideModalHandler.bind(this)}></FormModal>
+
+        <FormModal changeDiff={this.getDifficulty.bind(this)} modalSwitch={this.handleModalSwitch.bind(this)} showModal={this.state.showModal} hideModalHandler={this.hideModalHandler.bind(this)}></FormModal>
         <ul>
           {
             this.state.list.map((item) => {
+              if (!this.renderTrail(item.difficulty)) {
+                console.log("will not render trail of this difficulty");
+                return null;
+              }
               return (
-                <TrailCard originCity={this.state.newCity} originState={this.state.newState} trailName={item.name} location={item.location} length={item.length} id = {item.id} difficulty={item.difficulty} latitude={item.latitude} longitude={item.longitude} summary={item.summary} imgMedium={item.imgMedium} />
+                <TrailCard equipmentListener={this.props.equipmentListener} trailinfo={item} originCity={this.state.newCity} originState={this.state.newState} trailName={item.name} location={item.location} length={item.length} id={item.id} difficulty={item.difficulty} latitude={item.latitude} longitude={item.longitude} summary={item.summary} imgMedium={item.imgMedium} />
               )
             })
           }
