@@ -13,10 +13,22 @@ export default class FormModal extends Component {
     this.props.handleModalSwitch();
   }
 
+  changeDiff = (evt) => {
+    evt.preventDefault();
+    this.props.getDifficulty();
+  }
+/*
+  handleFilter = (evt) => {
+    evt.preventDefault();
+    this.props.filter();
+  }
+*/
+
+
         render() {
           return (
             <div className="FormModal">
-              {this.props.showModal ? <FormContent  closeModal={this.props.hideModalHandler} switch={this.handleSwitch}/> : null}
+              {this.props.showModal ? <FormContent  filter={this.props.filter} handleDiff={this.props.changeDiff} closeModal={this.props.hideModalHandler} switch={this.handleSwitch}/> : null}
             </div>
         );
     }
