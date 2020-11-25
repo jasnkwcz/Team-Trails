@@ -33,13 +33,8 @@ export default class TrailCard extends Component {
                     <p>Trailhead: ({this.props.latitude}, {this.props.longitude})</p>
                     <p>Description: {this.props.summary}</p>
                     <br />
-                    <Link to ={{
-                        pathname: 'trails/Equipment',
-                        state:{
-                            id: this.props.id
-                        }
-                    }}>Equipment</Link>
-                    <button id="Equipment">Equipment</button>
+                    <Link to ={"trails/Equipment/"}>Equipment</Link>
+                    <button id="Equipment">Equipment{this.props.id}</button>
                     <DirectionsButton userCity={this.state.localCity} userState={this.state.localState} latitude={this.props.latitude} longitude={this.props.longitude}/>
                 </ul>
             </div>
