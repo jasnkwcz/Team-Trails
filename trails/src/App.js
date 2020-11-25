@@ -36,6 +36,7 @@ export default class App extends Component {
         lat: 0,
         long: 0
       },
+      currentTrail: {}
 
     }
 
@@ -156,7 +157,11 @@ export default class App extends Component {
     return;
   }
 
-
+  getEquipment = (evt) => {
+    evt.preventDefault();
+    console.log(evt.target.value);
+    this.setState({currentTrail: evt.target.value});
+  }
 
 
   render() {
@@ -200,7 +205,7 @@ export default class App extends Component {
               />
             </Route>
             <Route exact path="/trails">
-              <Trails userState={this.state.user} />
+              <Trails equipmentListener={this.getEquipment.bind(this)} userState={this.state.user} />
             </Route>
             <Route exact path="/profile/edit">
               <UserForm 
@@ -212,8 +217,8 @@ export default class App extends Component {
 
               />
             </Route>
-            <Route exact path="/trails/equipment">
-              <Equipment />
+            <Route path="/trails/equipment/">
+              <Equipment currentTrail={this.state.currentTrail}/>
             </Route>
           </Switch>
         </div>
