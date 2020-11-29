@@ -16,7 +16,6 @@ constructor(props) {
   }
   componentDidMount() {
     this.setState({ isLoaded: true }, () => {
-      console.log(this.state.isLoaded)
     })
   }
   render() {
