@@ -20,7 +20,7 @@ constructor(props) {
     // Methods
 
     const temper = this.state.data.map(e => {
-      return parseInt(e.temp);
+      return parseInt(e.temp) * 9 / 5 + 32;
     });
 
     const wind = this.state.data.map(e => {

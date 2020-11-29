@@ -6,7 +6,7 @@ class EquipmentManager extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: this.props.data,
+      weatherdata: this.props.weatherdata,
       city: null,
       isLoaded: false
     };
@@ -16,7 +16,7 @@ class EquipmentManager extends React.Component {
     })
   }
   render () {
-    const temper = this.state.data.map(e => {
+    const temper = this.state.weatherdata.map(e => {
       return parseInt(e.temp);
     });
 
