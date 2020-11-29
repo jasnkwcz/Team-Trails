@@ -2,12 +2,12 @@ export default [
     {
       name: 'Water Bottle',
       image: 'https://img.grouponcdn.com/stores/ZhNcz5fgMVonTeCc66DvMDxi5mQ/storesoi24708131-1667x1000/v1/c700x420.jpg',
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      description: "Water bottles are essential for every hike"
     },
     {
       name: 'Hiking Backpack',
-      image: 'https://cdn1.static-tgdp.com/ui/productimages/approved/std.lang.all/57/58/555758_sized_1800x1200_rev_1.jpg',
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      image: 'https://1.bp.blogspot.com/-Iyjj3iAjUKs/U1W6p3Bdl2I/AAAAAAAAFPE/8hXkLsns2qY/s1600/trail_snacks.jpg',
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     {
       name: 'Hiking Stick',
