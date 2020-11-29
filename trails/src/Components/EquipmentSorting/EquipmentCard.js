@@ -34,6 +34,9 @@ img {
 width: 50%
 }
 `
+var TypographyStyle = {
+  height: '30px'
+}
 
 const Equipment = (props) => {
 const classes = useStyles();
@@ -51,7 +54,7 @@ const {description} = props;
           <Typography gutterBottom variant="h5" component="h2">
           {name}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
+          <Typography variant="body2" color="textSecondary" component="p" overflow="hidden" style={TypographyStyle}>
           {description}
           </Typography>
         </CardContent>

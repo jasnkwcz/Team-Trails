@@ -8,33 +8,17 @@ import WeatherCard from './WeatherCard.js'
 class WeatherForecast extends React.Component {
 constructor(props) {
     super(props);
-    this.searchCity("Snowmass Village")
     this.state = {
-      data: [],
+      data: this.props.data,
       city: null,
-      
       isLoaded: false
     };
   }
-
   componentDidMount() {
-    this.setState({ isLoaded: true });
+    this.setState({ isLoaded: true }, () => {
+      console.log(this.state.isLoaded)
+    })
   }
-
-  searchCity = async city => {
-    await weather
-      .get(`daily?city=${city}&key=3f934c9db1cf4675b88fcf1eac2d738d`)
-      .then(res => {
-        const data = res.data.data;
-        const city = res.data.city_name;
-
-        this.setState({
-          data,
-          city
-        });
-      });
-  };
-
   render() {
     // Methods
 
@@ -57,7 +41,7 @@ constructor(props) {
       return e.wind_cdir;
     });
     return (
-        <div class="forecast">
+        <div className="forecast">
             <WeatherCard temp={temper[0]} condition={condition[0]} time={time[0]} wind={wind[0]} winddir={winddir[0]}/>
             <WeatherCard temp={temper[1]} condition={condition[1]} time={time[1]} wind={wind[1]} winddir={winddir[1]}/>
             <WeatherCard temp={temper[2]} condition={condition[2]} time={time[2]} wind={wind[2]} winddir={winddir[2]}/>
