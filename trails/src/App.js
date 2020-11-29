@@ -11,6 +11,38 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import create from "zustand";
+
+const useStore = create((set) => ({
+  user: {
+    isProfileCreated : false,
+    name: "",
+    gender: "",
+    age: 0,
+    city: "",
+    state: "",
+    zip: 0,
+    height: 0,
+    weight: 0,
+    activity: 0,
+    fitnessLevel: 0
+  },
+  location: {
+    zip: 0,
+    lat: 0,
+    long: 0
+  },
+  currentTrail: {},
+  text: "",
+  updateText: (t) => set((state) => ({text: t})),
+  modalOn:false,
+  modalSave: false,
+  modalToggleFilter: false,
+  modalDifficulty: null,
+  handleModalChallenge: (x) => set((state) => ({modalDifficulty: x})),
+  toggleModalOn: () => set((state) => ({modalOn: state.modalOn})), 
+  modalSave: () => set((state) => ({modalSave: true})),
+}))
 
 export default class App extends Component {
   
@@ -36,7 +68,8 @@ export default class App extends Component {
         lat: 0,
         long: 0
       },
-      currentTrail: {}
+      currentTrail: {},
+      
 
     }
 
