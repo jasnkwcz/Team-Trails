@@ -15,12 +15,24 @@ export default class Equipment extends Component {
     this.state = {
       data: [],
       city: null,
+      items: [],
+      trailid: 7001635,
       isLoaded: false
     };
   }
 
   componentDidMount() {
     this.setState({ isLoaded: true });
+      fetch('https://www.hikingproject.com/data/get-trails-by-id?ids='+ this.state.trailid + '&key=200962200-a3f1d16081e9f29cfec2bd00a7bd1948')
+          .then(res => res.json())
+          .then(json => {
+              this.setState({
+                  isLoaded: true,
+                  items: json.trails,
+              })
+          }).catch((err) => {
+              console.log(err);
+          });
   }
 
   searchCity = async city => {
@@ -46,21 +58,15 @@ render() {
         </Delay>
       </div>
       <div className = "gaugeContainer">
-      <GaugeHolder id="gauge-chart1" width="40%" />
+      <Delay wait={2000}>
+      <GaugeHolder id="gauge-chart1" width="40%" items={this.state.items}/>
+      </Delay>
       </div>
       <Delay wait={500}>
       <Accordion title ="Recommended Equipment" active={true}> 
-      <EquipmentManager data={this.state.data}/>
+      <EquipmentManager weatherdata={this.state.data}/>
       </Accordion>
       </Delay>
-      <br></br>
-      <Accordion title ="Optional Equipment"> 
-      <EquipmentManager />
-      </Accordion>
-      <br></br>
-      <Accordion title ="Unecessary Equipment"> 
-      <EquipmentManager />
-      </Accordion>
     </div>
   );
 }
