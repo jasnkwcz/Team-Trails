@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import data1 from './TrailDatas/data1';
 import Equipment from './EquipmentCard'
 
@@ -6,7 +6,7 @@ class EquipmentManager extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: this.props.data,
+      weatherdata: this.props.weatherdata,
       city: null,
       isLoaded: false
     };
@@ -16,7 +16,11 @@ class EquipmentManager extends React.Component {
     })
   }
   render () {
-    if (5 < 10) {
+    const temper = this.state.weatherdata.map(e => {
+      return parseInt(e.temp);
+    });
+
+    if (temper[3] > -203) {
       return (
         <div className="wrapper">
         {data1.map(equipment => (
