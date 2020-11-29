@@ -48,9 +48,11 @@ render() {
       <div className = "gaugeContainer">
       <GaugeHolder id="gauge-chart1" width="40%" />
       </div>
+      <Delay wait={500}>
       <Accordion title ="Recommended Equipment" active={true}> 
-      <EquipmentManager/>
+      <EquipmentManager data={this.state.data}/>
       </Accordion>
+      </Delay>
       <br></br>
       <Accordion title ="Optional Equipment"> 
       <EquipmentManager />

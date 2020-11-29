@@ -2,12 +2,21 @@ import React from 'react'
 import data1 from './TrailDatas/data1';
 import Equipment from './EquipmentCard'
 
-const EquipmentManager = (props) => {
-    const info = {
-      rain: true,
-      traillength: 9
-    }
-    if (info.rain && info.traillength < 10) {
+class EquipmentManager extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: this.props.data,
+      city: null,
+      isLoaded: false
+    };
+  }
+  componentDidMount() {
+    this.setState({ isLoaded: true }, () => {
+    })
+  }
+  render () {
+    if (5 < 10) {
       return (
         <div className="wrapper">
         {data1.map(equipment => (
@@ -16,7 +25,6 @@ const EquipmentManager = (props) => {
         </div>
       )
     } else {
-
     return (
       <div className="wrapper">
       {data1.map(equipment => (
@@ -25,6 +33,7 @@ const EquipmentManager = (props) => {
         </div>
     )
   }
-} 
+}
+}
 
 export default EquipmentManager
