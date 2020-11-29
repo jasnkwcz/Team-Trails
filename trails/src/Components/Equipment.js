@@ -53,14 +53,6 @@ render() {
       <EquipmentManager data={this.state.data}/>
       </Accordion>
       </Delay>
-      <br></br>
-      <Accordion title ="Optional Equipment"> 
-      <EquipmentManager />
-      </Accordion>
-      <br></br>
-      <Accordion title ="Unecessary Equipment"> 
-      <EquipmentManager />
-      </Accordion>
     </div>
   );
 }

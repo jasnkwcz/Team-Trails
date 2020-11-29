@@ -1,7 +1,5 @@
 import React, {useState} from 'react'
 import './WeatherForecast.css'
-import weather from './WeatherAPI.js'
-
 
 import WeatherCard from './WeatherCard.js'
 
