@@ -6,8 +6,9 @@ function Accordion(props) {
     const [active, setActive] = useState(props.active);
     const contentRef = useRef(null);
 
+
     useEffect(() => {
-      contentRef.current.style.maxHeight = active ? `${contentRef.current.scrollHeight}px` : '0px';
+      contentRef.current.style.maxHeight = active ? `100%` : '0px';
     }, [contentRef, active]);
 
     const toggleActive = () => {
@@ -16,7 +17,7 @@ function Accordion(props) {
 
     const titleStyle = {
       fontWeight: 600,
-      fontSize: '14px',
+      fontSize: '18px',
     };
 
     return (

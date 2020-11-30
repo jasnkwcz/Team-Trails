@@ -9,7 +9,7 @@ const Gauge = (props) => {
     const Card = styled.div`
     background: linear-gradient(to top, rgba(${red},100,100), lightblue);
     width: 20%;
-    height: 200px;
+    height: 50%;
     display: inline-block;
     flex-direction: column;
     justify-content: space-between;
@@ -18,6 +18,7 @@ const Gauge = (props) => {
     border-radius: 15px;
     color: white;
     line-height: 0px
+    max-width: 100%;
     `
     var percent = ''
     switch (props.percent) {

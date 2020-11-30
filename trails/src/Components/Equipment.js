@@ -53,7 +53,7 @@ render() {
   return (
     <div>
       <div className= "weatherContainer">
-        <Delay wait={550}>
+        <Delay wait={600}>
         <WeatherForecast  data={this.state.data}/>
         </Delay>
       </div>
