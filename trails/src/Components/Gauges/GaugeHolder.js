@@ -21,7 +21,7 @@ class GaugeHolder extends Component {
                 <TrailTitle value={item.name} number={item.summary} unit={"Miles"} id={"gauge-chart3"} percent={item.length*0.03} location ={item.location}/>
                 <Gauge value={"Length:"} number={item.length} unit={"Miles"} id={"gauge-chart3"} percent={item.length*0.03}/>
                 <Gauge value={"Difficulty:"} number={item.difficulty} id={"gauge-chart1"} percent={item.difficulty}/>
-                <Gauge value={"Alt. Change: "} id={"gauge-chart2"} percent={(item.high-item.low)*0.0002} number={item.high-item.low} unit={"Feet"}/>
+                <Gauge value={"Max Altitude: "} id={"gauge-chart2"} percent={(item.high)*0.000055} number={item.high} unit={"Feet"}/>
                 </div>
                 ))}
             

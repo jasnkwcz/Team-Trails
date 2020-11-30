@@ -14,7 +14,7 @@ export default [
     {
       name: 'Hiking Stick',
       image: 'https://i.ibb.co/M8kF9jL/036-walking-stick.png',
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      description: "Colder temperatures may make trails hazardous and harder to navigate"
     },
     {
       name: 'Snack',

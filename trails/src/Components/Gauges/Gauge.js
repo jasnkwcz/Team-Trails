@@ -27,6 +27,9 @@ const Gauge = (props) => {
         case "blueBlack":
             percent = 0.5;
             break;
+        case "green":
+            percent = 0.1;
+            break;
         default:
             percent = props.percent;
             break;
