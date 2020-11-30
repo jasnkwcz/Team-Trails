@@ -33,5 +33,5 @@
 .accordion-content {
   background-color: rgb(29, 95, 107);
   overflow: hidden;
-  transition: max-height 0.2s ease;
+  transition: 600px 0.2s ease;
 }
