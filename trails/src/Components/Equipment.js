@@ -67,6 +67,7 @@ render() {
       <EquipmentManager weatherdata={this.state.data} items={this.state.items}/>
       </Accordion>
       </Delay>
+      <br></br>
     </div>
   );
 }
