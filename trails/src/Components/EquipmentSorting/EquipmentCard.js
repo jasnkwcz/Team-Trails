@@ -8,6 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import styled from '@emotion/styled';
+import { findByLabelText } from '@testing-library/react';
 
 const useStyles = makeStyles({
   root: {
@@ -38,6 +39,11 @@ var TypographyStyle = {
   height: '30px'
 }
 
+var CardMediaStyle = {
+  height: '150px',
+  width: '150px',
+}
+
 const Equipment = (props) => {
 const classes = useStyles();
 const {name} = props;
@@ -49,6 +55,7 @@ const {description} = props;
         <CardMedia
           className={classes.media}
           image={image}
+          style={CardMediaStyle}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
