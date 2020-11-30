@@ -36,7 +36,7 @@ width: 50%
 }
 `
 var TypographyStyle = {
-  height: '30px'
+  height: '50px'
 }
 
 var CardMediaStyle = {
@@ -66,11 +66,7 @@ const {description} = props;
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Read More
-        </Button>
-      </CardActions>
+
     </Cardo>
   );
 }

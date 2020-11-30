@@ -1,4 +1,4 @@
-// Cold Case, if trail is of short length and low altitude and weather is colder, bring basic equipment. Water, Snack, Backpack, Hiking Stick, Warm Gear
+// Base Case, Standard Equipment
 
 export default [
   {
@@ -24,6 +24,11 @@ export default [
   {
     name: 'Warm Clothes',
     image: 'https://i.ibb.co/9rzfRQW/046-hat.png',
+    description: 'Colder temperatures warrant warmer clothing to stay warm'
+  },
+  {
+    name: 'Rain Gear',
+    image: 'https://i.ibb.co/NNBSp4p/024-jacket.png',
     description: 'Colder temperatures warrant warmer clothing to stay warm'
   }
 ]

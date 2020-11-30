@@ -62,9 +62,9 @@ render() {
       <GaugeHolder id="gauge-chart1" width="40%" items={this.state.items}/>
       </Delay>
       </div>
-      <Delay wait={550}>
+      <Delay wait={2000}>
       <Accordion title ="Recommended Equipment" active={true}> 
-      <EquipmentManager weatherdata={this.state.data}/>
+      <EquipmentManager weatherdata={this.state.data} items={this.state.items}/>
       </Accordion>
       </Delay>
     </div>
