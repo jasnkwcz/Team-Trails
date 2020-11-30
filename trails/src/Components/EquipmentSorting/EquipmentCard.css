@@ -1,0 +1,14 @@
+.imageholder {
+  width: 350px;
+  padding: 2%;
+  margin: 2%;
+  max-height: 100%;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: 23%;
+}
+
+.imageholder img {
+  width: 5%;
+  height: 5%;
+}
