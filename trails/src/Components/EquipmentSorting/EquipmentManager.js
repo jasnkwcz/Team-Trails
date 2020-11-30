@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import data1 from './TrailDatas/data1';
 import Equipment from './EquipmentCard'
 
+import data2 from './TrailDatas/data2';
+
 class EquipmentManager extends React.Component {
   constructor(props) {
     super(props);
@@ -16,11 +18,14 @@ class EquipmentManager extends React.Component {
     })
   }
   render () {
+    // Trail and Weather Variable Setup
+
     const temper = this.state.weatherdata.map(e => {
-      return parseInt(e.temp);
+      return parseInt(e.temp) * 9 / 5 + 32;
     });
 
-    if (temper[3] > -203) {
+    // Base Case, if trail is of short length and weather is fair, bring basic equipment. Water, Snack, Hiking Shoes
+    if (temper[3] > 20) {
       return (
         <div className="wrapper">
         {data1.map(equipment => (
@@ -31,7 +36,7 @@ class EquipmentManager extends React.Component {
     } else {
     return (
       <div className="wrapper">
-      {data1.map(equipment => (
+      {data2.map(equipment => (
         <Equipment key={equipment.name} name={equipment.name} image={equipment.image} description={equipment.description} />
       ))}
         </div>

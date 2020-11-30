@@ -53,7 +53,7 @@ render() {
   return (
     <div>
       <div className= "weatherContainer">
-        <Delay wait={500}>
+        <Delay wait={550}>
         <WeatherForecast  data={this.state.data}/>
         </Delay>
       </div>
@@ -62,7 +62,7 @@ render() {
       <GaugeHolder id="gauge-chart1" width="40%" items={this.state.items}/>
       </Delay>
       </div>
-      <Delay wait={500}>
+      <Delay wait={550}>
       <Accordion title ="Recommended Equipment" active={true}> 
       <EquipmentManager weatherdata={this.state.data}/>
       </Accordion>
