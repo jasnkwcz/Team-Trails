@@ -17,6 +17,9 @@ export default class TrailCard extends Component {
             localState: this.props.originState
         }
     }
+    buttonClick = () => {
+        console.log("Button Working");
+     }
 
     //add event listener with this.props.handleEquipmentButton
     
@@ -41,7 +44,8 @@ export default class TrailCard extends Component {
                     <p>Trailhead: ({this.props.latitude}, {this.props.longitude})</p>
                     <p>Description: {this.props.summary}</p>
                     <br />
-                    <Link to="trails/Equipment/"><button id="Equipment" onClick={this.handleEquipmentButton.bind(this)} value={trailinfo.name}>Equipment</button>Equipment</Link>
+
+                    <Link to={"trails/Equipment/"+this.props.id} query={{the: 'query'}} value={trailinfo.name} trailid={trailinfo.id}>Equipment</Link>
                     <DirectionsButton userCity={this.state.localCity} userState={this.state.localState} latitude={this.props.latitude} longitude={this.props.longitude}/>
                 </ul>
             </div>

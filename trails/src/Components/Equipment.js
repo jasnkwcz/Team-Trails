@@ -16,20 +16,29 @@ export default class Equipment extends Component {
       city: "Snowmass Village",
       items: [],
       trailid: 7001635,
-      isLoaded: false
+      isLoaded: false,
+      urlvar: window.location.href
     };
-    this.searchCity(this.state.city)
+    //this.searchCity(this.state.city)
   }
 
   componentDidMount() {
+    var pageURL = window.location.href;
+    var lastURLSegment = pageURL.substr(pageURL.lastIndexOf('/') + 1);
+    console.log(lastURLSegment);
+    console.log(this.state.urlvar)
     this.setState({ isLoaded: true });
-      fetch('https://www.hikingproject.com/data/get-trails-by-id?ids='+ this.state.trailid + '&key=200962200-a3f1d16081e9f29cfec2bd00a7bd1948')
+      fetch('https://www.hikingproject.com/data/get-trails-by-id?ids='+ lastURLSegment + '&key=200962200-a3f1d16081e9f29cfec2bd00a7bd1948')
           .then(res => res.json())
           .then(json => {
               this.setState({
                   isLoaded: true,
                   items: json.trails,
               })
+              const location = this.state.items.map(e => {
+                return e.location;
+              });
+              this.searchCity(location)
           }).catch((err) => {
               console.log(err);
           });
@@ -54,7 +63,7 @@ render() {
     <div>
       <h1>{this.props}</h1>
       <div className= "weatherContainer">
-        <Delay wait={600}>
+        <Delay wait={2500}>
         <WeatherForecast  data={this.state.data}/>
         </Delay>
       </div>
