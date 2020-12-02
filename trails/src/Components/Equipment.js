@@ -38,7 +38,7 @@ export default class Equipment extends Component {
               const location = this.state.items.map(e => {
                 return e.location;
               });
-              this.searchCity(location)
+          this.searchCity(location)
           }).catch((err) => {
               console.log(err);
           });
@@ -61,7 +61,6 @@ render() {
 
   return (
     <div>
-      <h1>{this.props}</h1>
       <div className= "weatherContainer">
         <Delay wait={2500}>
         <WeatherForecast  data={this.state.data}/>
