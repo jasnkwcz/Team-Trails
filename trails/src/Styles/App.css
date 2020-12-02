@@ -77,3 +77,15 @@ nav{
 .points th {
   text-align: left;
 }
+
+button {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.navitem {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
