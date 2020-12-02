@@ -11,14 +11,14 @@ import Delay from 'react-delay'
 export default class Equipment extends Component {
   constructor(props) {
     super(props);
-    this.searchCity("Snowmass Village")
     this.state = {
       data: [],
-      city: null,
+      city: "Snowmass Village",
       items: [],
       trailid: 7001635,
       isLoaded: false
     };
+    this.searchCity(this.state.city)
   }
 
   componentDidMount() {
