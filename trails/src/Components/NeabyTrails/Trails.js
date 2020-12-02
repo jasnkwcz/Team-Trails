@@ -14,6 +14,7 @@ export default class Trails extends Component {
         lat: "",
         lon: "",
         list: [],
+        inputCity: "",
         newCity: this.props.userState.city,
         newState: this.props.userState.state,
         difficulty: -1,
@@ -69,12 +70,28 @@ export default class Trails extends Component {
       this.setState({zip: event.target.value});
     }
 
+    handleCityInput = (event) => {
+      this.setState({inputCity: event.target.value});
+    }    
+
     getLatLong = () => {
       const weatherURL = "http://api.openweathermap.org/data/2.5/weather?";
       const apiKey = "&appid=c681a7fcd870c24ab1f104b8df9e9f7e";
-      const buildURL = "zip=";
-      const zip = this.state.zip;
-      var setURL = weatherURL + buildURL + zip + apiKey + "&units=imperial";
+
+        const buildZipURL = "zip=";
+        const zipInput = this.state.zip;
+
+        const buildCityURL = "q=";
+        const cityInput = this.state.inputCity;
+
+      if(zipInput != ""){
+        var setURL = weatherURL + buildZipURL + zipInput + apiKey + "&units=imperial";
+      }
+      else{
+        var setURL = weatherURL + buildCityURL + cityInput + apiKey + "&units=imperial";
+      }
+
+
       axios.get(setURL).then(res => {
         this.setState({lat: res.data.coord.lat, lon: res.data.coord.lon});
         this.getTrails();
@@ -134,10 +151,18 @@ export default class Trails extends Component {
         <p>Current difficulty is: {this.state.difficulty}</p>
         
         <form id="nearbyTrails" method="get">
-	        <label>
+          <label>
           Zip Code:
+          <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" value={this.state.zip} onChange={this.handleZipInput}></input>
           </label>
-          <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" value={this.state.zip} onChange={this.handleZipInput.bind(this)}></input>
+          <h3> {this.state.zip} </h3>
+
+          <br />
+          <label>
+          City Name:
+          <input type="text" name="cityName" id="city_input" size="30" maxlength="100" value={this.state.inputCity} onChange={this.handleCityInput}></input>
+          </label>
+        
           <span id="weatherLat"></span> <span> </span> <span id="weatherLong"></span>
 	        <br />
 	        <button id="nearbyTrails" onClick={this.handleZipButton.bind(this)}>See nearby trails</button>
