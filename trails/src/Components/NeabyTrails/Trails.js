@@ -66,6 +66,7 @@ export default class Trails extends Component {
 
     }
   
+    // Functions to handle Zip and City input from the user.
     handleZipInput = (event) => {
       this.setState({zip: event.target.value});
     }
@@ -74,16 +75,18 @@ export default class Trails extends Component {
       this.setState({inputCity: event.target.value});
     }    
 
+    // function for getting lat and long of the trail
     getLatLong = () => {
       const weatherURL = "http://api.openweathermap.org/data/2.5/weather?";
       const apiKey = "&appid=c681a7fcd870c24ab1f104b8df9e9f7e";
 
-        const buildZipURL = "zip=";
-        const zipInput = this.state.zip;
+      const buildZipURL = "zip=";
+      const zipInput = this.state.zip;
 
-        const buildCityURL = "q=";
-        const cityInput = this.state.inputCity;
+      const buildCityURL = "q=";
+      const cityInput = this.state.inputCity;
 
+      // Determining if the user input a zip code or city name.
       if(zipInput != ""){
         var setURL = weatherURL + buildZipURL + zipInput + apiKey + "&units=imperial";
       }
@@ -155,8 +158,6 @@ export default class Trails extends Component {
           Zip Code:
           <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" value={this.state.zip} onChange={this.handleZipInput}></input>
           </label>
-          <h3> {this.state.zip} </h3>
-
           <br />
           <label>
           City Name:
