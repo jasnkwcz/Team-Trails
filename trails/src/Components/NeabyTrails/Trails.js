@@ -16,7 +16,7 @@ export default class Trails extends Component {
         list: [],
         newCity: this.props.userState.city,
         newState: this.props.userState.state,
-        difficulty: 0,
+        difficulty: -1,
         filter: false,
         levels: {
           green: 0,
@@ -46,6 +46,23 @@ export default class Trails extends Component {
     handleModalSwitch = (evt) => {
       evt.preventDefault();
       this.setState({filter: !this.state.filter});
+    }
+
+    //handler for when modal close button is clicked
+    handleModalClose = (evt) => {
+      //block standard event listener on button click
+      evt.preventDefault();
+      //check if the filter is active
+      if (!this.state.filter)
+      {
+        //if the filter is off, set everything back to default
+        this.setState({filter: -1, showModal: false})
+      }
+      //otherwise, just close the modal and allow filter to be applied
+      else {
+        this.setState({showModal: false});
+      }
+
     }
   
     handleZipInput = (event) => {
@@ -130,6 +147,7 @@ export default class Trails extends Component {
         <ul>
           {
             this.state.list.map((item) => {
+              //check if the trail's difficulty is equal to the current filter difficulty
               if (!this.renderTrail(item.difficulty)) {
                 console.log("will not render trail of this difficulty");
                 return null;
