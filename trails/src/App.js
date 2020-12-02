@@ -219,7 +219,7 @@ export default class App extends Component {
 
               />
             </Route>
-            <Route path="/" component={Equipment}>
+            <Route path="/trails/equipment/">
               <Equipment currentTrail={this.state.currentTrail}/>
             </Route>
           </Switch>

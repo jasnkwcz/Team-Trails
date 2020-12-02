@@ -21,9 +21,6 @@ export default class TrailCard extends Component {
         console.log("Button Working");
      }
 
-    //add event listener with this.props.handleEquipmentButton
-    
-
     render() {
         const trailinfo = {
             name: this.props.trailName,
@@ -44,8 +41,10 @@ export default class TrailCard extends Component {
                     <p>Trailhead: ({this.props.latitude}, {this.props.longitude})</p>
                     <p>Description: {this.props.summary}</p>
                     <br />
-
-                    <Link to={"trails/Equipment/"+this.props.id} query={{the: 'query'}} value={trailinfo.name} trailid={trailinfo.id}>Equipment</Link>
+                    <Link to={"trails/Equipment/"+this.props.id} value={trailinfo.name} trailid={trailinfo.id}>Equipmentss</Link>
+                    <Link to="/Equipment" onClick={this.props.equipmentListener} value={trailinfo.name} id={trailinfo.id}></Link>
+                    <Link to="trails/Equipment/"><button id="Equipment" onClick={this.props.equipmentListener} value={trailinfo.name}>Equipment</button>Equipment2</Link>
+                    <li>TEST: {this.props.trailinfo.id}</li>
                     <DirectionsButton userCity={this.state.localCity} userState={this.state.localState} latitude={this.props.latitude} longitude={this.props.longitude}/>
                 </ul>
             </div>
