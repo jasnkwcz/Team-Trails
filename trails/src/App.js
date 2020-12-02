@@ -52,7 +52,9 @@ export default class App extends Component {
   }
 
 
-
+  setCurrentTrail = (obj) => {
+    this.setState({currentTrail: obj})
+}
 
 
 
@@ -205,7 +207,7 @@ export default class App extends Component {
               />
             </Route>
             <Route exact path="/trails">
-              <Trails equipmentListener={this.getEquipment.bind(this)} userState={this.state.user} />
+              <Trails equipmentListener={this.getEquipment.bind(this)} userState={this.state.user} setCurrentTrail={this.setCurrentTrail.bind(this)}/>
             </Route>
             <Route exact path="/profile/edit">
               <UserForm 
