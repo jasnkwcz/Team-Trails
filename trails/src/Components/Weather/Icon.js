@@ -29,6 +29,12 @@ const Icon = (props) => {
         case "Few clouds":
             icon='https://i.ibb.co/sHv0krh/partlysunny.png'
             break;
+        case "Light snow":
+            icon="https://i.ibb.co/5crpP5m/cloundysnow.png"
+            break;
+        case "Snow":
+            icon="https://i.ibb.co/5crpP5m/cloundysnow.png"
+            break;
         default:
             icon ='https://i.ibb.co/G0Fj2PQ/clear.png'
             break;
