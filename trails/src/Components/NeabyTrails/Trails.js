@@ -156,12 +156,12 @@ export default class Trails extends Component {
         <form id="nearbyTrails" method="get">
           <label>
           Zip Code:
-          <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" value={this.state.zip} onChange={this.handleZipInput}></input>
+          <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" value={this.state.zip} onChange={this.handleZipInput.bind(this)}></input>
           </label>
           <br />
           <label>
           City Name:
-          <input type="text" name="cityName" id="city_input" size="30" maxlength="100" value={this.state.inputCity} onChange={this.handleCityInput}></input>
+          <input type="text" name="cityName" id="city_input" size="30" maxlength="100" value={this.state.inputCity} onChange={this.handleCityInput.bind(this)}></input>
           </label>
         
           <span id="weatherLat"></span> <span> </span> <span id="weatherLong"></span>
