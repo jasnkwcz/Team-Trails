@@ -52,6 +52,7 @@ render() {
 
   return (
     <div>
+      <h1>{this.props}</h1>
       <div className= "weatherContainer">
         <Delay wait={600}>
         <WeatherForecast  data={this.state.data}/>

@@ -122,6 +122,7 @@ export default class Trails extends Component {
       if (this.state.levels[traildiff] === userdiff) { return true };
       return false;
     }
+
   
   render() {
     return (
@@ -153,7 +154,7 @@ export default class Trails extends Component {
                 return null;
               }
               return (
-                <TrailCard equipmentListener={this.props.equipmentListener} trailinfo={item} originCity={this.state.newCity} originState={this.state.newState} trailName={item.name} location={item.location} length={item.length} id={item.id} difficulty={item.difficulty} latitude={item.latitude} longitude={item.longitude} summary={item.summary} imgMedium={item.imgMedium} />
+                <TrailCard handleEquipmentButton={this.props.setCurrentTrail} equipmentListener={this.props.equipmentListener} trailinfo={item} originCity={this.state.newCity} originState={this.state.newState} trailName={item.name} location={item.location} length={item.length} id={item.id} difficulty={item.difficulty} latitude={item.latitude} longitude={item.longitude} summary={item.summary} imgMedium={item.imgMedium} />
               )
             })
           }
