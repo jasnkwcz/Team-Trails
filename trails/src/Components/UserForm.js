@@ -8,17 +8,17 @@ export default class UserForm extends Component{
   constructor(props){
     super(props);
     
-    this.calculateClick = this.calculateClick.bind(this);
+    // this.calculateClick = this.calculateClick.bind(this);
     this.updateInfo = this.updateInfo.bind(this);
 
   }
 
 
 
-  calculateClick(evt){
+  // calculateClick(evt){
 
-    evt.preventDefault();
-  } 
+  //   evt.preventDefault();
+  // } 
 
 
   updateInfo(event) {
@@ -41,7 +41,7 @@ export default class UserForm extends Component{
     render(){
 
       let nameEdit = this.props.userState.name;
-      let genderEdit = this.props.userState.gender;
+      // let genderEdit = this.props.userState.gender;
       let ageEdit = this.props.userState.age;
       let cityEdit = this.props.userState.city;
       let stateEdit = this.props.userState.state;

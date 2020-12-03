@@ -6,15 +6,7 @@ import {
 export default class Profile extends Component{
     constructor(props){
         super(props);
-        // this.state = {
-        //     recommend: {
-        //         1: "easy",
-        //         2: "intermediate",
-        //         3: "challenging",
-        //         4: "difficult",
-        //         5: "impossible"
-        //     }
-        // };
+
         this.delClick = this.delClick.bind(this);
     }
 
@@ -181,14 +173,15 @@ export default class Profile extends Component{
             But as your Fitness Level changes, your recommentations will also change. <br />
             It may increase as you become more active and have the right weight, <br />
             or it may decrease as you become less active, fall off the healthy weight, or age really old. <br />
-            So make sure to keep updating your profile info by clicking "Edit Profile" below!
+            So make sure to keep updating your profile info by clicking "Edit Profile" below! <br />
+            Otherwise, click the "Nearby Trails" tab on the top right of the page to see some trails!
           </p>
           <Link className="editprofile" exact to="/profile/edit">Edit profile</Link>
           <br />
           <br />
           <button id="delete" onClick={this.delClick}>
             
-          <Link  id="deleteButton" className="navitem" to="/profile/edit">Delete Profile</Link>
+            <Link  id="deleteButton" className="navitem" to="/profile/edit">Delete Profile</Link>
           
           </button>
           <br/ >
