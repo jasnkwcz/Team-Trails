@@ -17,7 +17,7 @@ export default class Trails extends Component {
         inputCity: "",
         newCity: this.props.userState.city,
         newState: this.props.userState.state,
-        difficulty: -1,
+        difficulty: 2,
         filter: false,
         levels: {
           green: 0,
@@ -147,28 +147,32 @@ export default class Trails extends Component {
   render() {
     return (
       <div>
-
-        <h2>Nearby Trails:</h2>
-        <p>Here, you can enter your zip code to see trails near you. If you've created a user profile, you can click the "Get trails just for me" button to filter the results based on your fitness level and desired challenege level.</p>
-        <hr></hr>
-        <p>Current difficulty is: {this.state.difficulty}</p>
         
+        <div className="trailHeader">
+          <h2>Nearby Trails:</h2>
+          <p>Here, you can enter your zip code to see trails near you. If you've created a user profile, you can click the "Get trails just for me" button to filter the results based on your fitness level and desired challenege level.</p>
+          <hr></hr>
+          <p>Current difficulty is: {this.state.difficulty}</p>
+
         <form id="nearbyTrails" method="get">
-          <label>
+          <label className="nearbyInput">
           Zip Code:
           <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" value={this.state.zip} onChange={this.handleZipInput.bind(this)}></input>
           </label>
           <br />
-          <label>
+          <label className="nearbyInput">
           City Name:
           <input type="text" name="cityName" id="city_input" size="30" maxlength="100" value={this.state.inputCity} onChange={this.handleCityInput.bind(this)}></input>
           </label>
         
           <span id="weatherLat"></span> <span> </span> <span id="weatherLong"></span>
 	        <br />
-	        <button id="nearbyTrails" onClick={this.handleZipButton.bind(this)}>See nearby trails</button>
-          <button type="button"  onClick={this.showModalHandler.bind(this)}>Get hiking trails just for me!</button>
+          <br />
+	        <button className="nearbyTrailsButton" id="nearbyTrails" onClick={this.handleZipButton.bind(this)}>See nearby trails</button>
+          <button className="nearbyTrailsButton" type="button"  onClick={this.showModalHandler.bind(this)}>Get hiking trails just for me!</button>
         </form>
+
+        </div>
 
         <FormModal changeDiff={this.getDifficulty.bind(this)} modalSwitch={this.handleModalSwitch.bind(this)} showModal={this.state.showModal} hideModalHandler={this.hideModalHandler.bind(this)}></FormModal>
         <ul>

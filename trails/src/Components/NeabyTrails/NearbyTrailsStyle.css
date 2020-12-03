@@ -25,6 +25,27 @@ body {
 
 align-items: center;
 }
+
+.trailHeader {
+  background-color: lightgrey;
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+}
+
+.nearbyInput {
+  font-weight: 600;
+
+}
+
+.nearbyTrailsButton {
+  background-color: lightsteelblue;
+  padding: 2px 2px 2px 2px;
+  font-size: medium;
+
+}
+
+
 @media (max-width: 320px) {
 .flexcontainer {
 display: block;
