@@ -173,8 +173,6 @@ export default class Trails extends Component {
           <span class="spacer">-</span>
         </form>
 
-        </div>
-
         <FormModal changeDiff={this.getDifficulty.bind(this)} modalSwitch={this.handleModalSwitch.bind(this)} showModal={this.state.showModal} hideModalHandler={this.hideModalHandler.bind(this)}></FormModal>
         <ul>
           {
