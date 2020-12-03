@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import DirectionsButton from "../DirectionsButton";
 import "./NearbyTrailsStyle.css";
+import styled from '@emotion/styled'
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Link
   } from "react-router-dom";
+
+
 
 export default class TrailCard extends Component {
 
@@ -32,8 +35,8 @@ export default class TrailCard extends Component {
           <div>
             <img src={this.props.imgMedium} alt={this.props.name} />
           </div>
-            <div>
-                <ul>
+            <div>       
+                <ul className ="TrailCardInterior">
                     <p><h1>{this.props.trailName}</h1></p>
                     <p>Location: {this.props.location}</p>
                     <p>Length: {this.props.length} miles</p>
@@ -41,7 +44,7 @@ export default class TrailCard extends Component {
                     <p>Trailhead: ({this.props.latitude}, {this.props.longitude})</p>
                     <p>Description: {this.props.summary}</p>
                     <br />
-                    <Link to={"trails/Equipment/"+this.props.id} value={trailinfo.name} trailid={trailinfo.id}>Equipment</Link>
+                    <Link to={"trails/Equipment/"+this.props.id} value={trailinfo.name} trailid={trailinfo.id}><button class ="buttonlink">Equipment</button></Link>
                     <DirectionsButton userCity={this.state.localCity} userState={this.state.localState} latitude={this.props.latitude} longitude={this.props.longitude}/>
                 </ul>
             </div>

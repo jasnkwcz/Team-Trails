@@ -37,6 +37,12 @@ const Gauge = (props) => {
     }
     var number = ''
     switch (props.number) {
+        case "green":
+            number = "Green";
+            break;
+        case "greenBlue":
+            number = "Green Blue";
+            break;
         case "blue":
             number = "Blue";
             break;
