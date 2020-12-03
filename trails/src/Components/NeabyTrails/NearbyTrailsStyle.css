@@ -10,21 +10,22 @@ body {
   }
   */
 
-.TrailCard img:hover {
-  opacity: .9;
+.TrailCard img {
+  opacity: 1;
 }
 
 .TrailCard {
-  background-color: #ffffff;
+  background-color:rgba(255, 255, 255, 0.5);
   padding: 1rem;
   margin-bottom: 1rem;
-  opacity: 0.6;
+  margin-right: 1rem;
   
   display: flex;
 
 
 align-items: center;
 }
+
 
 .trailHeader {
   background-color: lightgrey;
