@@ -17,7 +17,7 @@ export default class Trails extends Component {
         inputCity: "",
         newCity: this.props.userState.city,
         newState: this.props.userState.state,
-        difficulty: -1,
+        difficulty: 2,
         filter: false,
         levels: {
           green: 0,
@@ -160,7 +160,7 @@ export default class Trails extends Component {
           <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" value={this.state.zip} onChange={this.handleZipInput.bind(this)}></input>
           </label>
           <br />
-          <label>
+          <label className="nearbyInput">
           City Name:
           <input type="text" name="cityName" id="city_input" size="30" maxlength="100" value={this.state.inputCity} onChange={this.handleCityInput.bind(this)}></input>
           </label>
@@ -172,6 +172,8 @@ export default class Trails extends Component {
           <button class="FormButton" type="button"  onClick={this.showModalHandler.bind(this)}><span>Get hiking trails just for me!</span></button>
           <span class="spacer">-</span>
         </form>
+
+        </div>
 
         <FormModal changeDiff={this.getDifficulty.bind(this)} modalSwitch={this.handleModalSwitch.bind(this)} showModal={this.state.showModal} hideModalHandler={this.hideModalHandler.bind(this)}></FormModal>
         <ul>

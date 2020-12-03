@@ -20,16 +20,16 @@ export default class App extends Component {
     this.state = {
       user: {
         isProfileCreated : false,
-        name: "",
-        gender: "",
-        age: 0,
-        city: "",
-        state: "",
-        zip: 0,
-        height: 0,
-        weight: 0,
-        activity: 0,
-        fitnessLevel: 0
+        name: "",               //takes an string
+        gender: "",             //takes an string
+        age: null,              //takes an int
+        city: "",               //takes an string
+        state: "",              //takes an string
+        zip: null,             //takes an int
+        height: null,          //takes an int
+        weight: null,          //takes an int
+        activity: null,        //takes an int
+        fitnessLevel: null     //takes an int
       },
       location: {
         zip: 0,
@@ -143,16 +143,16 @@ export default class App extends Component {
       {user: 
         {
         isProfileCreated : false,
-        name: "",
-        gender: "",
-        age: 0,
-        city: "",
-        state: "",
-        zip: 0,
-        height: 0,
-        weight: 0,
-        activity: 0,
-        fitnessLevel: 0
+        name: "",               //takes an string
+        gender: "",             //takes an string
+        age: null,              //takes an int
+        city: "",               //takes an string
+        state: "",              //takes an string
+        zip: null,             //takes an int
+        height: null,          //takes an int
+        weight: null,          //takes an int
+        activity: null,        //takes an int
+        fitnessLevel: null     //takes an int
         }
       }
   );
