@@ -8,6 +8,8 @@ import {
     Link
   } from "react-router-dom";
 
+
+
 export default class TrailCard extends Component {
 
     constructor(props) {
@@ -17,10 +19,6 @@ export default class TrailCard extends Component {
             localState: this.props.originState
         }
     }
-    buttonClick = () => {
-        console.log("Button Working");
-     }
-
     render() {
         const trailinfo = {
             name: this.props.trailName,
@@ -32,8 +30,8 @@ export default class TrailCard extends Component {
           <div>
             <img src={this.props.imgMedium} alt={this.props.name} />
           </div>
-            <div>
-                <ul>
+            <div>       
+                <ul className ="TrailCardInterior">
                     <p><h1>{this.props.trailName}</h1></p>
                     <p>Location: {this.props.location}</p>
                     <p>Length: {this.props.length} miles</p>
@@ -41,11 +39,11 @@ export default class TrailCard extends Component {
                     <p>Trailhead: ({this.props.latitude}, {this.props.longitude})</p>
                     <p>Description: {this.props.summary}</p>
                     <br />
-                    <Link to={"trails/Equipment/"+this.props.id} value={trailinfo.name} trailid={trailinfo.id}>Equipmentss</Link>
-                    <Link to="/Equipment" onClick={this.props.equipmentListener} value={trailinfo.name} id={trailinfo.id}></Link>
-                    <Link to="trails/Equipment/"><button id="Equipment" onClick={this.props.equipmentListener} value={trailinfo.name}>Equipment</button>Equipment2</Link>
-                    <li>TEST: {this.props.trailinfo.id}</li>
+                    <div className = "links">
+                    <Link to={"trails/Equipment/"+this.props.id} value={trailinfo.name} trailid={trailinfo.id}><button class ="buttonlink"><span>Equipment</span></button></Link>
+                    <span className="spacer">--</span>
                     <DirectionsButton userCity={this.state.localCity} userState={this.state.localState} latitude={this.props.latitude} longitude={this.props.longitude}/>
+                    </div>
                 </ul>
             </div>
         </div>

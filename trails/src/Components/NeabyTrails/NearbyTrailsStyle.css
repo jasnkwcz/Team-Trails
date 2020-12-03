@@ -1,4 +1,3 @@
-
 /*
 body {
     background-image: url("https://wallpaperfx.com/view_image/green-mountains-1920x1080-wallpaper-3104.jpg");
@@ -10,45 +9,100 @@ body {
   }
   */
 
-.TrailCard img {
-  opacity: 1;
+.TrailCard img:hover {
+  opacity: 0.9;
 }
 
 .TrailCard {
-  background-color:rgba(255, 255, 255, 0.5);
+  background: #eeeeee;
   padding: 1rem;
   margin-bottom: 1rem;
-  margin-right: 1rem;
-  
+  margin: 0 -0.2%;
   display: flex;
-
-
-align-items: center;
+  align-items: center;
+  border: 3px solid #8bb4c7;
+  width: 90%;
 }
-
-
-.trailHeader {
-  background-color: lightgrey;
-  padding-top: 25px;
-  padding-bottom: 25px;
-
-}
-
-.nearbyInput {
-  font-weight: 600;
-
-}
-
-.nearbyTrailsButton {
-  background-color: lightsteelblue;
-  padding: 2px 2px 2px 2px;
-  font-size: medium;
-
-}
-
 
 @media (max-width: 320px) {
-.flexcontainer {
-display: block;
+  .flexcontainer {
+    display: block;
+  }
 }
+.buttonlink,
+.FormButton {
+  background-color: #1bb1f7; /* blue */
+  font-size: 14px;
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.buttonlink:hover,
+.FormButton:hover {
+  background-color: #6390f0; /* darker blue */
+  color: white;
+}
+
+.buttonlink span,
+.FormButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.buttonlink:hover span,
+.FormButton:hover span {
+  padding-right: 25px;
+}
+.buttonlink span:after,
+.FormButton span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.buttonlink:hover span:after,
+.FormButton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.links {
+  display: flex;
+}
+
+.spacer {
+  opacity: 0;
+  user-select: none;
+}
+.nearbyTrails {
+  border: 3px solid #8bb4c7;
+  border-width: 0.3em;
+  display: flex;
+  justify-content: space-between;
+  max-width: 50%;
+  margin: 0 2%;
+  background: #eeeeee;
+  padding: 20px 0;
+  padding-left: 20px;
+}
+.topInfo {
+  border: 3px solid #8bb4c7;
+  border-width: 0.3em;
+  justify-content: space-between;
+  max-width: 70%;
+  margin: 0 2%;
+  background: #eeeeee;
+  padding: 5px 0;
+  padding-left: 20px;
 }

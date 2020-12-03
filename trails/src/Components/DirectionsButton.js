@@ -1,4 +1,5 @@
 import React, { Component} from "react";
+import './DirectionsButton.css'
 
 export default class DirectionsButton extends Component{
     constructor(props) {
@@ -22,7 +23,7 @@ export default class DirectionsButton extends Component{
     render() {
         return(
             <div>
-                <button className="directionsButton" onClick={this.getDirections.bind(this)}> Directions </button>
+                <button className="directionsButton" onClick={this.getDirections.bind(this)}><span>Directions</span></button>
             </div>
             
         )
