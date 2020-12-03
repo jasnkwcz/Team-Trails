@@ -14,13 +14,14 @@ body {
 }
 
 .TrailCard {
-  background: rgba(204, 204, 204);
+  background: #eeeeee;
   padding: 1rem;
   margin-bottom: 1rem;
-
+  margin: 0 -0.2%;
   display: flex;
-
   align-items: center;
+  border: 3px solid #276a8a;
+  width: 90%;
 }
 
 @media (max-width: 320px) {
@@ -28,13 +29,80 @@ body {
     display: block;
   }
 }
-.buttonlink {
-  background-color: #1bb1f7; /* Green */
+.buttonlink,
+.FormButton {
+  background-color: #1bb1f7; /* blue */
+  font-size: 14px;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.buttonlink:hover,
+.FormButton:hover {
+  background-color: #6390f0; /* darker blue */
+  color: white;
+}
+
+.buttonlink span,
+.FormButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.buttonlink:hover span,
+.FormButton:hover span {
+  padding-right: 25px;
+}
+.buttonlink span:after,
+.FormButton span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.buttonlink:hover span:after,
+.FormButton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.links {
+  display: flex;
+}
+
+.spacer {
+  opacity: 0;
+  user-select: none;
+}
+.nearbyTrails {
+  border: 3px solid #8bb4c7;
+  border-width: 0.3em;
+  display: flex;
+  justify-content: space-between;
+  max-width: 870px;
+  margin: 0 2%;
+  background: #eeeeee;
+  padding: 20px 0;
+  padding-left: 20px;
+}
+.topInfo {
+  border: 3px solid #8bb4c7;
+  border-width: 0.3em;
+  justify-content: space-between;
+  max-width: 70%;
+  margin: 0 2%;
+  background: #eeeeee;
+  padding: 5px 0;
+  padding-left: 20px;
 }

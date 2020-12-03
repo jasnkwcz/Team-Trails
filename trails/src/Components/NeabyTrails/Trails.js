@@ -147,13 +147,14 @@ export default class Trails extends Component {
   render() {
     return (
       <div>
-
+        <div className="topInfo">
         <h2>Nearby Trails:</h2>
         <p>Here, you can enter your zip code to see trails near you. If you've created a user profile, you can click the "Get trails just for me" button to filter the results based on your fitness level and desired challenege level.</p>
         <hr></hr>
         <p>Current difficulty is: {this.state.difficulty}</p>
-        
-        <form id="nearbyTrails" method="get">
+        </div>
+        <br></br>
+        <form className="nearbyTrails" id="nearbyTrails" method="get">
           <label>
           Zip Code:
           <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" value={this.state.zip} onChange={this.handleZipInput.bind(this)}></input>
@@ -166,8 +167,10 @@ export default class Trails extends Component {
         
           <span id="weatherLat"></span> <span> </span> <span id="weatherLong"></span>
 	        <br />
-	        <button id="nearbyTrails" onClick={this.handleZipButton.bind(this)}>See nearby trails</button>
-          <button type="button"  onClick={this.showModalHandler.bind(this)}>Get hiking trails just for me!</button>
+	        <button class="FormButton" id="nearbyTrails" onClick={this.handleZipButton.bind(this)}><span>See nearby trails</span></button>
+          <span class="spacer">--</span>
+          <button class="FormButton" type="button"  onClick={this.showModalHandler.bind(this)}><span>Get hiking trails just for me!</span></button>
+          <span class="spacer">-</span>
         </form>
 
         <FormModal changeDiff={this.getDifficulty.bind(this)} modalSwitch={this.handleModalSwitch.bind(this)} showModal={this.state.showModal} hideModalHandler={this.hideModalHandler.bind(this)}></FormModal>
