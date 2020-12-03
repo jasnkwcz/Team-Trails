@@ -1,4 +1,3 @@
-import { red } from "@material-ui/core/colors";
 import React, { Component } from "react";
 import {
   Link
@@ -179,14 +178,14 @@ export default class Profile extends Component{
             So make sure to keep updating your profile info by clicking "Edit Profile" below! <br />
             Otherwise, click the "Nearby Trails" tab on the top right of the page to see some trails!
           </p>
-          <Link className="editprofile" exact to="/profile/edit" style={{color: "blue", fontWeight: "bold"}}>Edit Profile</Link>
+          <Link className="editprofile" exact to="/profile/edit">Edit profile</Link>
           <br />
           <br />
-          <span id="delete" onClick={this.delClick} >
+          <button id="delete" onClick={this.delClick}>
             
-            <Link  id="deleteButton" className="navitem" to="/profile/edit" style={{color: "red", textDecoration: "underline"}}>Delete Profile</Link>
+            <Link  id="deleteButton" className="navitem" to="/profile/edit">Delete Profile</Link>
           
-          </span>
+          </button>
           <br/ >
           <br/ >
           <Link className="home" exact to="/">Back to First Page</Link>
