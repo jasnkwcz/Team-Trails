@@ -57,13 +57,24 @@ nav{
   }
 }
 
+
+
 .profilePages {
   background-color: white;
   opacity: 90%;
+  padding-top: 1%;
+  padding-bottom: 3%;
+  text-align: center;
+}
+
+.points-tables {
+  display: inline;
+  
 }
 
 .points {
   display: table-cell;
+
 }
 
 .points table, th, td {
@@ -75,7 +86,7 @@ nav{
   padding: 5px;
 }
 .points th {
-  text-align: left;
+  text-align: center;
 }
 
 button {
