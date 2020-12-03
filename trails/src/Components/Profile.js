@@ -123,37 +123,39 @@ export default class Profile extends Component{
           <p>
       Your Fitness Level has been calculated to <span className="level" style={{color: 'green'}}>level {fitness}</span> out of 5. Here's the formula:<br />
           </p>
-          <div class="points">
-            <strong>Daily Activity:</strong><br /><table>
-              <tbody><tr />
-                <tr> <th>Not Active</th>            <td>+1 point</td>  </tr>
-                <tr> <th>Slightly Active</th>       <td>+2 points</td> </tr>
-                <tr> <th>Moderately Active</th>     <td>+3 points</td>  </tr>
-                <tr> <th>Very Active</th>           <td>+4 points</td>  </tr>
-                <tr> <th>A Marathon Runner!</th>    <td>+5 points</td> </tr>
-              </tbody></table>
-          </div>
-          <div class="points">
-            <strong>Age:</strong><br /><table>
-              <tbody><tr />
-                <tr> <th>6 ~ 17</th>  <td>+5 points</td> </tr>
-                <tr> <th>18 ~ 64</th> <td>+3 points</td> </tr>
-                <tr> <th>65 ~</th>    <td>+1 point</td>  </tr>
-                <tr> <th>Other</th> <td>+0 points</td> </tr>
-              </tbody></table>
-          </div>
-          <div class="points">
-            <strong>BMI (kg/m^2):</strong><br /><table>
-              <tbody><tr />
-                <tr> <th>18.5 ~ 24.9</th>  <td>+2 points</td> </tr>
-                <tr> <th>Other</th> <td>+0 points</td> </tr>
-              </tbody></table>
+          <div class="points-tables">
+            <div class="points">
+              <strong>Age:</strong><br /><table>
+                <tbody><tr />
+                  <tr> <th>6 ~ 17</th>  <td>+5 points</td> </tr>
+                  <tr> <th>18 ~ 64</th> <td>+3 points</td> </tr>
+                  <tr> <th>65 ~</th>    <td>+1 point</td>  </tr>
+                  <tr> <th>Other</th> <td>+0 points</td> </tr>
+                </tbody></table>
+            </div>
+            <div class="points">
+              <strong>Daily Activity:</strong><br /><table>
+                <tbody><tr />
+                  <tr> <th>Not Active</th>            <td>+1 point</td>  </tr>
+                  <tr> <th>Slightly Active</th>       <td>+2 points</td> </tr>
+                  <tr> <th>Moderately Active</th>     <td>+3 points</td>  </tr>
+                  <tr> <th>Very Active</th>           <td>+4 points</td>  </tr>
+                  <tr> <th>A Marathon Runner!</th>    <td>+5 points</td> </tr>
+                </tbody></table>
+            </div>
+            <div class="points">
+              <strong>BMI (kg/m^2):</strong><br /><table>
+                <tbody><tr />
+                  <tr> <th>18.5 ~ 24.9</th>  <td>+2 points</td> </tr>
+                  <tr> <th>Other</th> <td>+0 points</td> </tr>
+                </tbody></table>
+            </div>
           </div>
           <p />
           <p>
             <strong>Formula:</strong><br />
             BMI = kg / (cm/100)^2<br />
-            Sum = Daily Activity Points + Age Points + BMI Points<br />
+            Sum = Age Points + Daily Activity Points + BMI Points<br />
             Fitness Level = round(Sum * 5 / 12)
           </p>
           <p style={{color: 'green'}}>
@@ -161,7 +163,7 @@ export default class Profile extends Component{
               {Math.round(this.props.userState.weight/((height/100)**2)*10)/10} = {weight} / ({height}/100)^2
             </span><br />
             <span id="showWork2">
-              {sum} = {DA} + {agePts} + {BMIpts}
+              {sum} = {agePts} + {DA} + {BMIpts}
             </span><br />
             <span id="showWork3">
               {fitness} = round({sum} * 5 / 12)
