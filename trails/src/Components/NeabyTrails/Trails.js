@@ -192,8 +192,12 @@ export default class Trails extends Component {
           <span class="spacer">-</span>
         </form>
 
+<<<<<<< HEAD
 
         <FormModal showModal={this.state.showModal} handleModalClose={this.handleModalClose.bind(this)} handleModalCheckbox={this.handleModalCheckbox.bind(this)} handleModalSave={this.handleModalSave.bind(this)} handleModalDifficulty={this.handleModalDifficulty.bind(this)}></FormModal>
+=======
+        <FormModal changeDiff={this.getDifficulty.bind(this)} modalSwitch={this.handleModalSwitch.bind(this)} showModal={this.state.showModal} hideModalHandler={this.hideModalHandler.bind(this)}></FormModal>
+>>>>>>> dd1994db9771fc8fe776a48d6469d161e374d1ca
         <ul>
           {
             this.state.list.map((item) => {
