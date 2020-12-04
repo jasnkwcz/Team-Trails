@@ -17,8 +17,9 @@ export default class Trails extends Component {
         inputCity: "",
         newCity: this.props.userState.city,
         newState: this.props.userState.state,
-        difficulty: 2,
+        difficulty: null,
         filter: false,
+        filterSave: false,
         levels: {
           green: 0,
           greenBlue: 1,
@@ -30,39 +31,6 @@ export default class Trails extends Component {
       }
       this.getTrails.bind(this);
       this.renderTrail.bind(this);
-
-    }
-  
-    //modal is rendered on button click
-    showModalHandler = (event) =>{
-      this.setState({showModal:true});
-    }
-  
-    //modal is hidden on button click inside modal
-    hideModalHandler = (event) =>{
-      this.setState({showModal:false});
-    }
-
-    //handler for when modal filter is turned on
-    handleModalSwitch = (evt) => {
-      evt.preventDefault();
-      this.setState({filter: !this.state.filter});
-    }
-
-    //handler for when modal close button is clicked
-    handleModalClose = (evt) => {
-      //block standard event listener on button click
-      evt.preventDefault();
-      //check if the filter is active
-      if (!this.state.filter)
-      {
-        //if the filter is off, set everything back to default
-        this.setState({filter: -1, showModal: false})
-      }
-      //otherwise, just close the modal and allow filter to be applied
-      else {
-        this.setState({showModal: false});
-      }
 
     }
   
@@ -87,7 +55,7 @@ export default class Trails extends Component {
       const cityInput = this.state.inputCity;
 
       // Determining if the user input a zip code or city name.
-      if(zipInput != ""){
+      if(zipInput !== ""){
         var setURL = weatherURL + buildZipURL + zipInput + apiKey + "&units=imperial";
       }
       else{
@@ -99,6 +67,46 @@ export default class Trails extends Component {
         this.setState({lat: res.data.coord.lat, lon: res.data.coord.lon});
         this.getTrails();
       });
+    }
+
+    //handle modal open button
+    handleModalOpen = (evt) => {
+      evt.preventDefault();
+      this.setState({showModal: true});
+    }
+
+    //handle modal close button
+    //when modal is closed, check if settings have been saved. if yes, then no action needed except to close the modal. if no, then reset the filter save state to false and the difficulty to null
+    handleModalClose = (evt) => {
+      evt.preventDefault();
+      if (!this.state.filterSave)
+      {
+        this.setState({difficulty: null});
+        this.setState({filter: false});
+      }
+      else{
+      }
+        this.setState({showModal: false});
+      
+      
+    }
+
+    //handle modal save button
+    //if the save button is clicked, then set the filter save state to true, which will be checked by the modal close function
+    handleModalSave = (evt) => {
+      evt.preventDefault();
+      this.setState({filterSave: true});
+    }
+
+    //handle filter on/off checkbox
+    handleModalCheckbox = (evt) => {
+      this.setState({filter: !this.state.filter});    
+      console.log(this.state); 
+    }
+
+    //handle modal difficulty change
+    handleModalDifficulty = (evt) => {
+      this.setState({difficulty: Number(evt.target.value)});
     }
 
     getTrails = () => {
@@ -125,22 +133,33 @@ export default class Trails extends Component {
       this.setState({difficulty: evt.target.value});
     }
 
-    /*
-    filter = (evt) => {
-      evt.preventDefault();
-      this.setState({filter: !this.state.filter});
-    }
-*/
+    
     //if return true, then the given trail should be rendered. otherwise if false, trail should not be rendered
-    renderTrail = (traildiff) => {
-      //calculate the desired difficulty based on user's fitness and filter preference
-      //desired difficulty = userfitness + filteroption (min 0, max 5)
-      let userdiff = this.props.userState.fitnessLevel + this.state.difficulty;
-      if (userdiff < 0) { userdiff = 0; }
-      if (userdiff > 5) { userdiff = 5; }
-      //compare the objective difficulty of the trail (computed from state.levels) to the user's specified difficulty (as difficulty variable)
-      if (this.state.levels[traildiff] === userdiff) { return true };
-      return false;
+    renderTrail = (trail) => {
+      //if user filter is off, return true (render all trails)
+      if (!this.state.filter) return true;
+      //get difficulty of given trail
+      let trailDifficulty = trail.difficulty;
+      console.log("the difficulty of this trail is: ", trail.difficulty);
+      //get user filter settings
+      let filterDifficulty = this.state.difficulty;
+      console.log("the user's filter difficulty setting is: ", this.state.difficulty);
+      //get user fitness data
+      let userFitness = this.props.userState.fitnessLevel;
+      console.log("the user's fitness level is: ", this.props.userState.fitnessLevel);
+      if (userFitness === null)
+      {
+        userFitness = 0;
+      }
+      //compute the filter based on the user fitness + filter setting
+      let filterSetting = Number(filterDifficulty) + Number(userFitness);
+      console.log("current filter setting is ", filterSetting);
+      //compare the filter setting to the trail difficulty
+      if (filterSetting !== trailDifficulty)
+      {
+        return false;
+      }
+      return true;
     }
 
   
@@ -151,11 +170,11 @@ export default class Trails extends Component {
         <h2>Nearby Trails:</h2>
         <p>Here, you can enter your zip code to see trails near you. If you've created a user profile, you can click the "Get trails just for me" button to filter the results based on your fitness level and desired challenege level.</p>
         <hr></hr>
-        <p>Current difficulty is: {this.state.difficulty}</p>
         </div>
         <br></br>
+        <div></div>
         <form className="nearbyTrails" id="nearbyTrails" method="get">
-          <label>
+          <label htmlFor="zipCode">
           Zip Code:
           <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100" value={this.state.zip} onChange={this.handleZipInput.bind(this)}></input>
           </label>
@@ -169,19 +188,17 @@ export default class Trails extends Component {
 	        <br />
 	        <button class="FormButton" id="nearbyTrails" onClick={this.handleZipButton.bind(this)}><span>See nearby trails</span></button>
           <span class="spacer">--</span>
-          <button class="FormButton" type="button"  onClick={this.showModalHandler.bind(this)}><span>Get hiking trails just for me!</span></button>
+          <button class="FormButton" type="button"  onClick={this.handleModalOpen.bind(this)}><span>Get hiking trails just for me!</span></button>
           <span class="spacer">-</span>
         </form>
 
-        </div>
 
-        <FormModal changeDiff={this.getDifficulty.bind(this)} modalSwitch={this.handleModalSwitch.bind(this)} showModal={this.state.showModal} hideModalHandler={this.hideModalHandler.bind(this)}></FormModal>
+        <FormModal showModal={this.state.showModal} handleModalClose={this.handleModalClose.bind(this)} handleModalCheckbox={this.handleModalCheckbox.bind(this)} handleModalSave={this.handleModalSave.bind(this)} handleModalDifficulty={this.handleModalDifficulty.bind(this)}></FormModal>
         <ul>
           {
             this.state.list.map((item) => {
               //check if the trail's difficulty is equal to the current filter difficulty
-              if (!this.renderTrail(item.difficulty)) {
-                console.log("will not render trail of this difficulty");
+              if (!this.renderTrail(item)) {
                 return null;
               }
               return (
@@ -194,4 +211,4 @@ export default class Trails extends Component {
     );
   }
     
-  }
+}
