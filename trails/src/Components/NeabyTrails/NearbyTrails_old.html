@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Trails Component</title>
+    <link rel="stylesheet" type="text/css" href="NearbyTrailsStyle_src4react.css">
+
+</head>
+
+<body>
+    <form id="nearbyTrails" method="get">
+      <fieldset>
+
+        <legend>
+          Get Data:
+        </legend>
+
+        <label>
+          City:
+          <input type="text" name="city_weather" id="city_input" size="30" maxlength="100">
+	</label>
+	<br /><br />
+
+        <label>
+
+
+	<label>
+          Zip Code:
+          <input type="text" name="zipCode" id="zip_input" size="30" maxlength="100">
+        </label>
+        <span id="weatherLat"></span> <span>, </span> <span id="weatherLong"></span>
+	<br /></p>
+	<button id="nearbyTrails" type="submit">Submit</button>
+      </fieldset>
+    </form>
+</body>
+
+<body>
+    <div id="app"></div>
+</body>
+
+
+<script src="getLocation_src4react.js"></script>
+<script src="NearbyTrails_src4react.js"></script>
+
+
+</html>
