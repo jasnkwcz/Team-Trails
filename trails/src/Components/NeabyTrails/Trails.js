@@ -139,7 +139,7 @@ export default class Trails extends Component {
       //if user filter is off, return true (render all trails)
       if (!this.state.filter) return true;
       //get difficulty of given trail
-      let trailDifficulty = trail.difficulty;
+      let trailDifficulty = this.state.levels[trail.difficulty];
       console.log("the difficulty of this trail is: ", trail.difficulty);
       //get user filter settings
       let filterDifficulty = this.state.difficulty;
@@ -199,6 +199,7 @@ export default class Trails extends Component {
             this.state.list.map((item) => {
               //check if the trail's difficulty is equal to the current filter difficulty
               if (!this.renderTrail(item)) {
+                console.log("will not render trail of difficulty ", item.difficulty);
                 return null;
               }
               return (
